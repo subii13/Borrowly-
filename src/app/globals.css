@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --color-canvas: #f7f7f4;
+  --color-ink: #20241f;
+  --color-ink-soft: #565c55;
+  --color-ink-faint: #8a8f88;
+  --color-line: #e4e4de;
+  --color-line-strong: #d3d3cb;
+  --color-card: #ffffff;
+  --color-forest: #245c46;
+  --color-forest-dark: #1b4636;
+  --color-forest-50: #eaf1ed;
+  --color-forest-100: #d5e4db;
+  --color-sage: #7f9d89;
+  --color-sage-50: #f0f4f1;
+  --color-amber: #9a6a12;
+  --color-amber-50: #fbf3e2;
+  --color-rose: #a63a2b;
+  --color-rose-50: #fbecea;
+  --color-sky: #2f5f86;
+  --color-sky-50: #e9f1f7;
+
+  --radius-card: 14px;
+  --shadow-card: 0 1px 2px rgb(32 36 31 / 0.04), 0 1px 1px rgb(32 36 31 / 0.03);
+  --shadow-lift: 0 12px 32px -12px rgb(32 36 31 / 0.18);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-ink;
+  }
+  ::selection {
+    @apply bg-forest-100;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-forest;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8;
+  }
+  .card {
+    @apply rounded-[var(--radius-card)] border border-line bg-card shadow-[var(--shadow-card)];
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-forest;
+  }
+  .input {
+    @apply block w-full rounded-lg border border-line-strong bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-faint transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15 disabled:bg-canvas disabled:text-ink-faint;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+  }
+  .table-base {
+    @apply w-full text-left text-sm;
+  }
+  .table-base th {
+    @apply border-b border-line bg-canvas/60 px-4 py-2.5 text-xs font-semibold uppercase tracking-wide text-ink-soft;
+  }
+  .table-base td {
+    @apply border-b border-line px-4 py-3 align-middle;
+  }
+  .table-base tr:last-child td {
+    @apply border-b-0;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

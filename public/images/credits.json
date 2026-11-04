@@ -1,0 +1,422 @@
+{
+  "armchair": {
+    "key": "armchair",
+    "file": "/images/products/armchair.webp",
+    "title": "File:\" 12 - ITALY - Pouf Tuffet Sacco di Zanotta red armchair Triennale Design Museum.jpg",
+    "license": "CC BY-SA 3.0 it",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/it/deed.en",
+    "artist": "Pava",
+    "page": "https://commons.wikimedia.org/wiki/File:%22_12_-_ITALY_-_Pouf_Tuffet_Sacco_di_Zanotta_red_armchair_Triennale_Design_Museum.jpg"
+  },
+  "calculator": {
+    "key": "calculator",
+    "file": "/images/products/calculator.webp",
+    "title": "File:Casio fx-991EX Scientific Calculator.jpg",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "artist": "David Wheatley",
+    "page": "https://commons.wikimedia.org/wiki/File:Casio_fx-991EX_Scientific_Calculator.jpg"
+  },
+  "cameras": {
+    "key": "cameras",
+    "file": "/images/categories/cameras.webp",
+    "title": "File:Zeiss Batis Sonnar F1.8 85.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Franz van Duns",
+    "page": "https://commons.wikimedia.org/wiki/File:Zeiss_Batis_Sonnar_F1.8_85.jpg"
+  },
+  "camping-tent": {
+    "key": "camping-tent",
+    "file": "/images/products/camping-tent.webp",
+    "title": "File:Tent camping along the Sulayr trail in La Taha, Sierra Nevada National Park (DSCF5147).jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "artist": "Trougnouf (Benoit Brummer)",
+    "page": "https://commons.wikimedia.org/wiki/File:Tent_camping_along_the_Sulayr_trail_in_La_Taha,_Sierra_Nevada_National_Park_(DSCF5147).jpg"
+  },
+  "canon-50mm": {
+    "key": "canon-50mm",
+    "file": "/images/products/canon-50mm.webp",
+    "title": "File:Canon EF 50mm f18.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "artist": "JTPickering",
+    "page": "https://commons.wikimedia.org/wiki/File:Canon_EF_50mm_f18.jpg"
+  },
+  "canon-80d": {
+    "key": "canon-80d",
+    "file": "/images/products/canon-80d.webp",
+    "title": "File:Canon 80D-2.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "GodeNehler",
+    "page": "https://commons.wikimedia.org/wiki/File:Canon_80D-2.jpg"
+  },
+  "cordless-drill": {
+    "key": "cordless-drill",
+    "file": "/images/products/cordless-drill.webp",
+    "title": "File:CORDLESS DRILL.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Abduldedysubhansyah",
+    "page": "https://commons.wikimedia.org/wiki/File:CORDLESS_DRILL.jpg"
+  },
+  "duffel": {
+    "key": "duffel",
+    "file": "/images/products/duffel.webp",
+    "title": "File:Seabag.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "artist": "Bahamut0013",
+    "page": "https://commons.wikimedia.org/wiki/File:Seabag.jpg"
+  },
+  "dumbbells": {
+    "key": "dumbbells",
+    "file": "/images/products/dumbbells.webp",
+    "title": "File:Colorful dumbbells of various sizes.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Ser Amantio di Nicolao",
+    "page": "https://commons.wikimedia.org/wiki/File:Colorful_dumbbells_of_various_sizes.jpg"
+  },
+  "education": {
+    "key": "education",
+    "file": "/images/categories/education.webp",
+    "title": "File:Public Library Bhiswa – Students Reading.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Samir Kumar",
+    "page": "https://commons.wikimedia.org/wiki/File:Public_Library_Bhiswa_%E2%80%93_Students_Reading.jpg"
+  },
+  "electric-screwdriver": {
+    "key": "electric-screwdriver",
+    "file": "/images/products/electric-screwdriver.webp",
+    "title": "File:2023 Wkrętak elektryczny Xiaomi.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Jacek Halicki",
+    "page": "https://commons.wikimedia.org/wiki/File:2023_Wkr%C4%99tak_elektryczny_Xiaomi.jpg"
+  },
+  "electronics": {
+    "key": "electronics",
+    "file": "/images/categories/electronics.webp",
+    "title": "File:Laptop and small plant on a desk in a modern workspace during daylight hours.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "Shixart1985",
+    "page": "https://commons.wikimedia.org/wiki/File:Laptop_and_small_plant_on_a_desk_in_a_modern_workspace_during_daylight_hours.jpg"
+  },
+  "encyclopedia": {
+    "key": "encyclopedia",
+    "file": "/images/products/encyclopedia.webp",
+    "title": "File:Encyclopedia on a wooden bookshelf.png",
+    "license": "Public domain",
+    "artist": "DALL-E, with text prompt from Aaron Lucas",
+    "page": "https://commons.wikimedia.org/wiki/File:Encyclopedia_on_a_wooden_bookshelf.png"
+  },
+  "events": {
+    "key": "events",
+    "file": "/images/categories/events.webp",
+    "title": "File:Dance and lights at MFF 2025 HS.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Reconrabbit",
+    "page": "https://commons.wikimedia.org/wiki/File:Dance_and_lights_at_MFF_2025_HS.jpg"
+  },
+  "furniture": {
+    "key": "furniture",
+    "file": "/images/categories/furniture.webp",
+    "title": "File:Couch-furniture-living-room-sofa (24300293356).jpg",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "artist": "www.Pixel.la Free Stock Photos",
+    "page": "https://commons.wikimedia.org/wiki/File:Couch-furniture-living-room-sofa_(24300293356).jpg"
+  },
+  "gopro": {
+    "key": "gopro",
+    "file": "/images/products/gopro.webp",
+    "title": "File:GoPro Hero (film camera), profile.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Mliu92",
+    "page": "https://commons.wikimedia.org/wiki/File:GoPro_Hero_(film_camera),_profile.jpg"
+  },
+  "home-appliances": {
+    "key": "home-appliances",
+    "file": "/images/categories/home-appliances.webp",
+    "title": "File:Kitchen area with modern appliances and wooden cabinets.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "Shixart1985",
+    "page": "https://commons.wikimedia.org/wiki/File:Kitchen_area_with_modern_appliances_and_wooden_cabinets.jpg"
+  },
+  "ipad": {
+    "key": "ipad",
+    "file": "/images/products/ipad.webp",
+    "title": "File:About iPad Air 11-inch (M2).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "メイド理世",
+    "page": "https://commons.wikimedia.org/wiki/File:About_iPad_Air_11-inch_(M2).jpg"
+  },
+  "jbl-speaker": {
+    "key": "jbl-speaker",
+    "file": "/images/products/jbl-speaker.webp",
+    "title": "File:JBL Flip 3 bluetooth speaker (DSCF2653).jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "artist": "Trougnouf",
+    "page": "https://commons.wikimedia.org/wiki/File:JBL_Flip_3_bluetooth_speaker_(DSCF2653).jpg"
+  },
+  "laser-measure": {
+    "key": "laser-measure",
+    "file": "/images/products/laser-measure.webp",
+    "title": "File:2023 Dalmierz laserowy Bosh GLM 30.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Jacek Halicki",
+    "page": "https://commons.wikimedia.org/wiki/File:2023_Dalmierz_laserowy_Bosh_GLM_30.jpg"
+  },
+  "macbook-air": {
+    "key": "macbook-air",
+    "file": "/images/products/macbook-air.webp",
+    "title": "File:MacBook Air M1.png",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Padgriffin",
+    "page": "https://commons.wikimedia.org/wiki/File:MacBook_Air_M1.png"
+  },
+  "microscope": {
+    "key": "microscope",
+    "file": "/images/products/microscope.webp",
+    "title": "File:Dark Cool Optical Microscope.png",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Rouibi Dhia Eddine Nadjm",
+    "page": "https://commons.wikimedia.org/wiki/File:Dark_Cool_Optical_Microscope.png"
+  },
+  "microwave": {
+    "key": "microwave",
+    "file": "/images/products/microwave.webp",
+    "title": "File:Hamilton Beach Easy Reach Sure-Crisp Toaster Oven - 01.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Infrogmation of New Orleans",
+    "page": "https://commons.wikimedia.org/wiki/File:Hamilton_Beach_Easy_Reach_Sure-Crisp_Toaster_Oven_-_01.jpg"
+  },
+  "monitor": {
+    "key": "monitor",
+    "file": "/images/products/monitor.webp",
+    "title": "File:ASUS PB278Q (PXL 20250914 223256075).jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "artist": "Hayden Schiff",
+    "page": "https://commons.wikimedia.org/wiki/File:ASUS_PB278Q_(PXL_20250914_223256075).jpg"
+  },
+  "mountain-bike": {
+    "key": "mountain-bike",
+    "file": "/images/products/mountain-bike.webp",
+    "title": "File:Hardtail-mountain-bike.jpg",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+    "artist": "Unknown",
+    "page": "https://commons.wikimedia.org/wiki/File:Hardtail-mountain-bike.jpg"
+  },
+  "pa-speaker": {
+    "key": "pa-speaker",
+    "file": "/images/products/pa-speaker.webp",
+    "title": "File:EV For USA.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "Andres B",
+    "page": "https://commons.wikimedia.org/wiki/File:EV_For_USA.jpg"
+  },
+  "power-toolkit": {
+    "key": "power-toolkit",
+    "file": "/images/products/power-toolkit.webp",
+    "title": "File:Makita dhp453.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Pixeltest",
+    "page": "https://commons.wikimedia.org/wiki/File:Makita_dhp453.jpg"
+  },
+  "pressure-washer": {
+    "key": "pressure-washer",
+    "file": "/images/products/pressure-washer.webp",
+    "title": "File:Kärcher-Hochdruckreiniger.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Firma Kärcher",
+    "page": "https://commons.wikimedia.org/wiki/File:K%C3%A4rcher-Hochdruckreiniger.jpg"
+  },
+  "projector": {
+    "key": "projector",
+    "file": "/images/products/projector.webp",
+    "title": "File:InFocus IN34.jpg",
+    "license": "Public domain",
+    "artist": "Dave Pape",
+    "page": "https://commons.wikimedia.org/wiki/File:InFocus_IN34.jpg"
+  },
+  "projector-screen": {
+    "key": "projector-screen",
+    "file": "/images/products/projector-screen.webp",
+    "title": "File:Soirée WikiCheese le 24 octobre 2015 - 39.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Lionel Allorge",
+    "page": "https://commons.wikimedia.org/wiki/File:Soir%C3%A9e_WikiCheese_le_24_octobre_2015_-_39.jpg"
+  },
+  "ps5": {
+    "key": "ps5",
+    "file": "/images/products/ps5.webp",
+    "title": "File:PlayStation 5 and DualSense with transparent background.png",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Soberian (this retouched file)Osh33m (original photograph)",
+    "page": "https://commons.wikimedia.org/wiki/File:PlayStation_5_and_DualSense_with_transparent_background.png"
+  },
+  "raspberry-pi": {
+    "key": "raspberry-pi",
+    "file": "/images/products/raspberry-pi.webp",
+    "title": "File:Raspberry Pi 4 Model B - Side.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Laserlicht",
+    "page": "https://commons.wikimedia.org/wiki/File:Raspberry_Pi_4_Model_B_-_Side.jpg"
+  },
+  "sewing-machine": {
+    "key": "sewing-machine",
+    "file": "/images/products/sewing-machine.webp",
+    "title": "File:Woman sewing a face mask with a Singer machine 09.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Tadeáš Bednarz",
+    "page": "https://commons.wikimedia.org/wiki/File:Woman_sewing_a_face_mask_with_a_Singer_machine_09.jpg"
+  },
+  "softbox-kit": {
+    "key": "softbox-kit",
+    "file": "/images/products/softbox-kit.webp",
+    "title": "File:PhotoSEL LS21E52 Softbox Studio Lighting Kit (2).jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Katie Chan",
+    "page": "https://commons.wikimedia.org/wiki/File:PhotoSEL_LS21E52_Softbox_Studio_Lighting_Kit_(2).jpg"
+  },
+  "sony-a7iii": {
+    "key": "sony-a7iii",
+    "file": "/images/products/sony-a7iii.webp",
+    "title": "File:Sony Alpha7 III 20 apr 2018f.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "昼落ち",
+    "page": "https://commons.wikimedia.org/wiki/File:Sony_Alpha7_III_20_apr_2018f.jpg"
+  },
+  "sports-outdoors": {
+    "key": "sports-outdoors",
+    "file": "/images/categories/sports-outdoors.webp",
+    "title": "File:MTB cyclist (Mohican State Park).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "AMcDermot",
+    "page": "https://commons.wikimedia.org/wiki/File:MTB_cyclist_(Mohican_State_Park).jpg"
+  },
+  "stage-lights": {
+    "key": "stage-lights",
+    "file": "/images/products/stage-lights.webp",
+    "title": "File:DJ lights.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Myotis",
+    "page": "https://commons.wikimedia.org/wiki/File:DJ_lights.jpg"
+  },
+  "string-lights": {
+    "key": "string-lights",
+    "file": "/images/products/string-lights.webp",
+    "title": "File:Dyker Lights (62317).jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Rhododendrites",
+    "page": "https://commons.wikimedia.org/wiki/File:Dyker_Lights_(62317).jpg"
+  },
+  "study-desk": {
+    "key": "study-desk",
+    "file": "/images/products/study-desk.webp",
+    "title": "File:Brown and beige, Computer desk, Rostov-on-Don, Russia.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "artist": "Vyacheslav Argenberg",
+    "page": "https://commons.wikimedia.org/wiki/File:Brown_and_beige,_Computer_desk,_Rostov-on-Don,_Russia.jpg"
+  },
+  "suitcase": {
+    "key": "suitcase",
+    "file": "/images/products/suitcase.webp",
+    "title": "File:Small Seafoam and Medium White Luna-Air suitcases.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Luggage jamie",
+    "page": "https://commons.wikimedia.org/wiki/File:Small_Seafoam_and_Medium_White_Luna-Air_suitcases.jpg"
+  },
+  "telescope": {
+    "key": "telescope",
+    "file": "/images/products/telescope.webp",
+    "title": "File:Telescope Celestron window.jpg",
+    "license": "Public domain",
+    "artist": "User:AstroHurricane001 en.wikipedia",
+    "page": "https://commons.wikimedia.org/wiki/File:Telescope_Celestron_window.jpg"
+  },
+  "thinkpad": {
+    "key": "thinkpad",
+    "file": "/images/products/thinkpad.webp",
+    "title": "File:ThinkPad T430 (keyboard).jpg",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "artist": "Vitaly Zdanevich",
+    "page": "https://commons.wikimedia.org/wiki/File:ThinkPad_T430_(keyboard).jpg"
+  },
+  "tools-diy": {
+    "key": "tools-diy",
+    "file": "/images/categories/tools-diy.webp",
+    "title": "File:Haltern am See, Sythen, Werkzeughalle der Quarzwerke -- 2015 -- 4990.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Dietmar Rabich",
+    "page": "https://commons.wikimedia.org/wiki/File:Haltern_am_See,_Sythen,_Werkzeughalle_der_Quarzwerke_--_2015_--_4990.jpg"
+  },
+  "travel-luggage": {
+    "key": "travel-luggage",
+    "file": "/images/categories/travel-luggage.webp",
+    "title": "File:Trolley suitcases 02.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Arths-at",
+    "page": "https://commons.wikimedia.org/wiki/File:Trolley_suitcases_02.jpg"
+  },
+  "trekking-backpack": {
+    "key": "trekking-backpack",
+    "file": "/images/products/trekking-backpack.webp",
+    "title": "File:Plecak Hiker 50 L HiMountain.jpg",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "artist": "WrS.tm.pl",
+    "page": "https://commons.wikimedia.org/wiki/File:Plecak_Hiker_50_L_HiMountain.jpg"
+  },
+  "tripod": {
+    "key": "tripod",
+    "file": "/images/products/tripod.webp",
+    "title": "File:Manfrotto tripod heads 804RC2.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Dmitry Makeev",
+    "page": "https://commons.wikimedia.org/wiki/File:Manfrotto_tripod_heads_804RC2.jpg"
+  },
+  "vacuum": {
+    "key": "vacuum",
+    "file": "/images/products/vacuum.webp",
+    "title": "File:Dyson vacuum cleaner attachments.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "Your Best Digs",
+    "page": "https://commons.wikimedia.org/wiki/File:Dyson_vacuum_cleaner_attachments.jpg"
+  }
+}
