@@ -4,6 +4,8 @@
 
 People rent items by the day or buy them second-hand from verified individuals and small businesses nearby. Sellers turn idle inventory into income. Every booking carries a full record: availability locking, server-side pricing, simulated payment, documented handover and return, reviews and disputes.
 
+**Live demo:** https://borrowly-sigma.vercel.app (open `/demo` for one-click sign-in)
+
 > This is a **functional demonstration build**. Listings, people and transactions are seeded sample data, and every payment goes through a simulated provider. No real money moves.
 
 ![Homepage](docs/screenshots/home.png)

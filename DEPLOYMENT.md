@@ -1,6 +1,6 @@
 # Deployment (Vercel + Supabase)
 
-> **Status:** everything is prepared but **not deployed yet**. Deploying needs your own Vercel and Supabase accounts, and no credentials were available while building. Follow the steps below; they take about 15 minutes.
+> **Status:** deployed and verified at https://borrowly-sigma.vercel.app (Vercel + Supabase, Mumbai). The steps below reproduce the deployment.
 
 ## 1. Supabase (database and storage)
 
