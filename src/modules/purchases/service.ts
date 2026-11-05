@@ -50,10 +50,16 @@ export async function checkoutPurchase(db: Db, actor: Actor, input: { listingId:
     return existing;
   }
 
-  let created: { order: PurchaseOrder; paymentId: string };
+  let created: { order: PurchaseOrder; paymentId: string | null };
   try {
     created = await db.$transaction(async (tx) => {
       await lockListing(tx, input.listingId);
+      // A concurrent request with the same key may have won the lock: hand back its order.
+      const raced = await tx.purchaseOrder.findUnique({ where: { idempotencyKey: input.idempotencyKey } });
+      if (raced) {
+        if (raced.customerId !== actor.id) throw notFound("Order");
+        return { order: raced, paymentId: null };
+      }
       const listing = await tx.listing.findUnique({ where: { id: input.listingId } });
       if (!listing) throw notFound("Listing");
       assertBuyable(listing, actor);
@@ -98,6 +104,7 @@ export async function checkoutPurchase(db: Db, actor: Actor, input: { listingId:
   }
 
   const { order, paymentId } = created;
+  if (!paymentId) return order;
   const result = await paymentProvider().charge({ amountPaise: order.totalPaise, idempotencyKey: `pay_${input.idempotencyKey}`, description: `Order ${order.code}`, simulate: input.simulate });
 
   return db.$transaction(async (tx) => {

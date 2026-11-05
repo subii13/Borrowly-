@@ -93,12 +93,18 @@ export async function checkoutRental(db: Db, actor: Actor, input: { holdId: stri
     return existing;
   }
 
-  let created: { booking: RentalBooking; paymentId: string };
+  let created: { booking: RentalBooking; paymentId: string | null };
   try {
     created = await db.$transaction(async (tx) => {
       const hold = await tx.bookingHold.findUnique({ where: { id: input.holdId } });
       if (!hold || hold.customerId !== actor.id) throw notFound("Reservation");
       await lockListing(tx, hold.listingId);
+      // A concurrent request with the same key may have won the lock: hand back its booking.
+      const raced = await tx.rentalBooking.findUnique({ where: { idempotencyKey: input.idempotencyKey } });
+      if (raced) {
+        if (raced.customerId !== actor.id) throw notFound("Booking");
+        return { booking: raced, paymentId: null };
+      }
       const fresh = await tx.bookingHold.findUniqueOrThrow({ where: { id: hold.id } });
       if (fresh.status !== "ACTIVE" || fresh.expiresAt <= now) throw new AppError("UNAVAILABLE", "Your reservation expired. Please select your dates again.");
       const listing = await tx.listing.findUniqueOrThrow({ where: { id: hold.listingId } });
@@ -155,6 +161,7 @@ export async function checkoutRental(db: Db, actor: Actor, input: { holdId: stri
   }
 
   const { booking, paymentId } = created;
+  if (!paymentId) return booking;
   const result = await paymentProvider().charge({ amountPaise: booking.totalPaise, idempotencyKey: `pay_${input.idempotencyKey}`, description: `Rental ${booking.code}`, simulate: input.simulate });
 
   return db.$transaction(async (tx) => {
