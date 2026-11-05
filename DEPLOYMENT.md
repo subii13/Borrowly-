@@ -11,7 +11,7 @@
 3. Under **Storage**, create two buckets:
    - `listing-images` with **Public** on
    - `evidence` with **Public** off (handover and dispute photos stay private)
-4. Under **Project Settings → API**, copy the **Project URL** → `NEXT_PUBLIC_SUPABASE_URL` and the **service_role** key → `SUPABASE_SERVICE_ROLE_KEY`. The service-role key is a secret: keep it server-side only and never commit it.
+4. Under **Project Settings → API**, copy the **Project URL** → `SUPABASE_URL` and the **service_role** key → `SUPABASE_SERVICE_ROLE_KEY`. The service-role key is a secret: keep it server-side only and never commit it.
 
 ## 2. Migrate and seed (from your machine, once)
 
@@ -35,7 +35,7 @@ npm run db:seed        # demo data: only for the demonstration deployment
 | `DIRECT_URL` | Supabase direct URL |
 | `APP_URL` | `https://<your-app>.vercel.app` |
 | `DEMO_MODE` | `true` for the evaluation demo, otherwise unset |
-| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `SUPABASE_URL` | Supabase project URL |
 | `SUPABASE_SERVICE_ROLE_KEY` | service-role key (**secret**) |
 | `SUPABASE_PUBLIC_BUCKET` | `listing-images` |
 | `SUPABASE_PRIVATE_BUCKET` | `evidence` |

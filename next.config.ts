@@ -4,12 +4,12 @@ function hostOf(url: string | undefined) {
   try {
     return url ? new URL(url.trim()).hostname : undefined;
   } catch {
-    console.warn("NEXT_PUBLIC_SUPABASE_URL is not a valid URL (expected https://<project>.supabase.co); remote images disabled");
+    console.warn("SUPABASE_URL is not a valid URL (expected https://<project>.supabase.co); remote images disabled");
     return undefined;
   }
 }
 
-const supabaseHost = hostOf(process.env.NEXT_PUBLIC_SUPABASE_URL);
+const supabaseHost = hostOf(process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL);
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },

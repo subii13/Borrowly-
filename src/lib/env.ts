@@ -6,7 +6,7 @@ export const env = {
   appUrl: process.env.APP_URL ?? "http://localhost:3000",
   /** Enables the one-click demo sign-in and the admin "reset demo data" tool. */
   demoMode: process.env.DEMO_MODE === "true",
-  supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
+  supabaseUrl: (process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL)?.trim() || undefined,
   supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
   publicBucket: process.env.SUPABASE_PUBLIC_BUCKET ?? "listing-images",
   privateBucket: process.env.SUPABASE_PRIVATE_BUCKET ?? "evidence",
