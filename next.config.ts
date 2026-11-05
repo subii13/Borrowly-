@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
-const supabaseHost = process.env.NEXT_PUBLIC_SUPABASE_URL ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname : undefined;
+function hostOf(url: string | undefined) {
+  try {
+    return url ? new URL(url.trim()).hostname : undefined;
+  } catch {
+    console.warn("NEXT_PUBLIC_SUPABASE_URL is not a valid URL (expected https://<project>.supabase.co); remote images disabled");
+    return undefined;
+  }
+}
+
+const supabaseHost = hostOf(process.env.NEXT_PUBLIC_SUPABASE_URL);
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
