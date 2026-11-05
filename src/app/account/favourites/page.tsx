@@ -16,7 +16,7 @@ export default async function FavouritesPage() {
     <>
       <PageHeader title="Favourites" description="Items you've saved for later." />
       {favs.length ? (
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">{favs.map((f) => <ListingCard key={f.listingId} listing={f.listing} />)}</div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">{favs.map((f) => <ListingCard key={f.listingId} listing={f.listing} />)}</div>
       ) : (
         <EmptyState icon={Heart} title="No favourites yet" body="Tap Save on any listing to keep it here." action={<ButtonLink href="/explore" size="sm">Explore</ButtonLink>} />
       )}

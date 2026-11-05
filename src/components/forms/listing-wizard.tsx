@@ -85,7 +85,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
     });
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[220px_1fr]">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[220px_1fr]">
       <ol className="flex gap-2 overflow-x-auto scrollbar-none lg:flex-col">
         {STEPS.map((s, i) => (
           <li key={s.title}>
@@ -104,7 +104,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
             <>
               <Field label="Title" htmlFor="title" error={err("title")} hint="e.g. Canon EOS 80D with 18-135mm lens"><input id="title" className="input" {...register("title")} /></Field>
               <Field label="Description" htmlFor="description" error={err("description")} hint="Condition, what's included, and anything a renter should know"><textarea id="description" className="input min-h-36" {...register("description")} /></Field>
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <Field label="Brand (optional)" htmlFor="brand" error={err("brand")}><input id="brand" className="input" {...register("brand")} /></Field>
                 <Field label="Model (optional)" htmlFor="model" error={err("model")}><input id="model" className="input" {...register("model")} /></Field>
               </div>
@@ -159,7 +159,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
           )}
           {step === 3 && (
             <>
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <label className={clsx("flex cursor-pointer items-start gap-3 rounded-xl border p-4", v.rentalEnabled ? "border-forest bg-forest-50" : "border-line bg-white")}>
                   <input type="checkbox" className="mt-1 accent-forest" {...register("rentalEnabled")} />
                   <span><span className="block font-semibold">Available to rent</span><span className="text-sm text-ink-soft">Charge per day plus a refundable deposit</span></span>
@@ -171,7 +171,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
               </div>
               {err("rentalEnabled") && <p className="text-sm text-rose">{err("rentalEnabled")}</p>}
               {v.rentalEnabled && (
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <Field label="Daily rate (₹)" htmlFor="dailyRate" error={err("dailyRate")}><input id="dailyRate" inputMode="decimal" className="input" {...register("dailyRate")} /></Field>
                   <Field label="Refundable deposit (₹)" htmlFor="deposit" error={err("deposit")}><input id="deposit" inputMode="decimal" className="input" {...register("deposit")} /></Field>
                   <Field label="Minimum days" htmlFor="minRentalDays" error={err("minRentalDays")}><input id="minRentalDays" type="number" min={1} className="input" {...register("minRentalDays")} /></Field>
@@ -184,7 +184,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
             </>
           )}
           {step === 4 && (
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Field label="Area in Coimbatore" htmlFor="area" error={err("area")}>
                 <select id="area" className="input" {...register("area", { onChange: (e) => { const a = AREAS.find((x) => x.name === e.target.value); if (a) setValue("pincode", a.pincode); } })}>
                   <option value="">Choose area</option>

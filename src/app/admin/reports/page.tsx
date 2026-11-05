@@ -33,7 +33,7 @@ export default async function AdminReports() {
           <tbody>{cats.map((c) => <tr key={c.name}><td>{c.name}</td><td className="text-right">{c.listings}</td><td className="text-right">{c.bookings}</td><td className="text-right">{c.orders}</td><td className="text-right tabular-nums">{formatINR(c.gross)}</td></tr>)}</tbody>
         </table>
       </TableWrap>
-      <div className="mt-8 grid gap-6 lg:grid-cols-2">
+      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="card p-5">
           <h3 className="font-semibold">Payments by state</h3>
           <ul className="mt-3 space-y-2 text-sm">{o.payments.map((p) => <li key={p.status} className="flex items-center justify-between gap-2"><StatusBadge status={p.status} label={PAYMENT_STATUS_LABEL[p.status]} /><span className="tabular-nums">{p._count} · {formatINR(p._sum.amountPaise ?? 0)}</span></li>)}</ul>

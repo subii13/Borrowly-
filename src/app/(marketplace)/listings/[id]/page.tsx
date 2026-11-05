@@ -49,7 +49,7 @@ export default async function ListingPage({ params }: Props) {
         </div>
       )}
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12">
         <div className="min-w-0">
           <Gallery images={listing.images.map((i) => ({ id: i.id, url: i.url, alt: i.alt }))} title={listing.title} />
 

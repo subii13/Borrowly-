@@ -18,7 +18,7 @@ export function ResolveDisputeForm({ action, refundableLabel }: { action: (input
   return (
     <div className="card p-5">
       <h3 className="font-semibold">Record decision</h3>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className="label" htmlFor="r-out">Outcome</label>
           <select id="r-out" className="input" value={outcome} onChange={(e) => setOutcome(e.target.value as typeof outcome)}>

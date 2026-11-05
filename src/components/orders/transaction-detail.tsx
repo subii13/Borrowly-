@@ -199,7 +199,7 @@ export async function BookingDetail({ bookingId, actor }: { bookingId: string; a
         )}
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
           <div className="card p-5">
             <h3 className="font-semibold">Summary</h3>
@@ -325,7 +325,7 @@ export async function PurchaseDetail({ orderId, actor }: { orderId: string; acto
         {party === "customer" && o.status === "COMPLETED" && !o.review && <ReviewForm action={reviewAction.bind(null, { purchaseOrderId: o.id })} />}
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
           <div className="card p-5">
             <h3 className="font-semibold">Summary</h3>

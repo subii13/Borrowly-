@@ -44,7 +44,7 @@ export default async function AccountOverview({ searchParams }: { searchParams: 
         <Stat label="Open purchases" value={openOrders} hint={`${favs} saved favourites`} icon={ShoppingBag} />
       </div>
 
-      <div className="mt-8 grid gap-8 xl:grid-cols-[1fr_320px]">
+      <div className="mt-8 grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
         <section>
           <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Current & upcoming rentals</h2><Link href="/account/bookings" className="text-sm font-medium text-forest hover:underline">All bookings</Link></div>
           {current.length ? (

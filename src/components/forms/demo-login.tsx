@@ -23,7 +23,7 @@ export function DemoLoginButtons({ compact }: { compact?: boolean }) {
       router.refresh();
     });
   return (
-    <div className={compact ? "grid grid-cols-3 gap-2" : "grid gap-4 md:grid-cols-3"}>
+    <div className={compact ? "grid grid-cols-3 gap-2" : "grid grid-cols-1 gap-4 md:grid-cols-3"}>
       {ROLES.map(({ role, label, icon: Icon, body }) => (
         <button key={role} type="button" disabled={pending} onClick={() => go(role)} data-testid={`demo-${role}`} className={compact ? "flex flex-col items-center gap-1 rounded-lg border border-line-strong bg-white px-2 py-3 text-sm font-medium hover:border-forest hover:text-forest disabled:opacity-60" : "card flex flex-col items-start p-6 text-left transition-shadow hover:shadow-[var(--shadow-lift)] disabled:opacity-60"}>
           {pending ? <Loader2 className="size-5 animate-spin text-forest" /> : <Icon className="size-5 text-forest" />}

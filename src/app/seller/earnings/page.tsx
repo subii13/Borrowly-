@@ -29,7 +29,7 @@ export default async function EarningsPage() {
   return (
     <>
       <PageHeader title="Earnings" description={`Current commission: ${settings.commissionBps / 100}% on completed transactions. Each transaction keeps the rate that applied when it was booked.`} />
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <Stat label="Gross transaction value" value={formatINR(o.gross)} />
         <Stat label="Commission" value={formatINR(o.commission)} />
         <Stat label="Net earnings" value={formatINR(o.net)} />

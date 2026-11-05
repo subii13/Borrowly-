@@ -25,7 +25,7 @@ export default async function SellPage() {
           <SafeImage src="/images/categories/tools-diy.webp" alt="A workshop bench with tools" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
         </div>
       </section>
-      <section className="container-page grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="container-page grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {[
           { icon: IndianRupee, title: "Keep most of it", body: `Borrowly's commission is ${s.commissionBps / 100}% of completed transactions. No listing fees.` },
           { icon: CalendarRange, title: "Your calendar, your rules", body: "Set daily rates, deposits, minimum and maximum rental days and stock." },

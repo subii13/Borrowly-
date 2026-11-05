@@ -24,7 +24,7 @@ export function PayForm({ total, idempotencyKey, pay, successPath, failurePath }
         <ShieldAlert className="mt-0.5 size-5 shrink-0" />
         <p><strong>DEMO PAYMENT — No real money will be charged.</strong> Choose the outcome you want to simulate.</p>
       </div>
-      <fieldset className="mt-4 grid gap-2 sm:grid-cols-2">
+      <fieldset className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
         <legend className="label">Simulated card result</legend>
         {(["approve", "decline"] as const).map((o) => (
           <label key={o} className={clsx("flex cursor-pointer items-center gap-3 rounded-xl border p-4 text-sm", outcome === o ? "border-forest bg-forest-50" : "border-line bg-white")}>

@@ -17,7 +17,7 @@ export function SettingsForm({ initial }: { initial: { commissionBps: number; cu
   const toBps = (pct: string) => Math.round(Number(pct) * 100);
   return (
     <form
-      className="grid gap-4 sm:grid-cols-3"
+      className="grid grid-cols-1 gap-4 sm:grid-cols-3"
       onSubmit={(e) => {
         e.preventDefault();
         start(async () => {

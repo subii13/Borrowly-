@@ -35,7 +35,7 @@ export default async function BuyCheckoutPage({ params }: { params: Promise<{ li
     <div className="container-page max-w-5xl py-10">
       <h1 className="text-3xl font-bold">Checkout</h1>
       <p className="mt-1 text-ink-soft">Buying pre-owned from {listing.seller.displayName}.</p>
-      <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_380px]">
+      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
         <div className="card p-6">
           {problem || !quote ? (
             <div>

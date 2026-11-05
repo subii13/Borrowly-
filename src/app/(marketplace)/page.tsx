@@ -115,7 +115,7 @@ export default async function HomePage() {
             <h2 className="mt-2 text-3xl font-bold">Every rental has a paper trail</h2>
             <p className="mt-3 text-ink-soft">Informal rentals break down over “who had it last” and “it was already scratched”. Borrowly records each step so both sides know where they stand.</p>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: BadgeCheck, title: "Verified Sellers", body: "Sellers confirm their email and phone and are reviewed by our team before earning the verified badge." },
               { icon: ShieldCheck, title: "Secure Transaction Workflow", body: "Prices are calculated on our servers and bookings lock inventory, so no double-bookings or surprise totals." },
@@ -136,7 +136,7 @@ export default async function HomePage() {
       <section className="container-page py-16" aria-labelledby="how-heading">
         <p className="eyebrow">How Borrowly works</p>
         <h2 id="how-heading" className="mt-2 text-3xl font-bold">Three steps, no strangers’ WhatsApp groups</h2>
-        <ol className="mt-10 grid gap-4 md:grid-cols-3">
+        <ol className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
           {[
             { icon: PackageSearch, title: "Find what you need", body: "Search hundreds of items by neighbourhood, price and condition. Check live availability for your dates." },
             { icon: CalendarCheck, title: "Rent or buy", body: "Pick dates to rent, or buy pre-owned outright. See the full price, deposit and fees before you pay." },

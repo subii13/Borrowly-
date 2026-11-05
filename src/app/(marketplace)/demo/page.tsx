@@ -17,7 +17,7 @@ export default function DemoPage() {
       <div className="mt-10">
         {env.demoMode ? <DemoLoginButtons /> : <p className="card p-6 text-ink-soft">One-click demo sign-in is disabled on this deployment. Use the credentials below on the <Link href="/login" className="text-forest underline">login page</Link>.</p>}
       </div>
-      <div className="mt-10 grid gap-6 lg:grid-cols-2">
+      <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="card p-6">
           <h2 className="text-lg font-bold">Demo credentials</h2>
           <table className="mt-3 w-full text-sm">

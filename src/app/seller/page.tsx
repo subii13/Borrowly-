@@ -52,7 +52,7 @@ export default async function SellerDashboard() {
 
       <div className="mt-6"><EarningsChart data={chart} title="Earnings — last 6 months" /></div>
 
-      <div className="mt-8 grid gap-8 xl:grid-cols-2">
+      <div className="mt-8 grid grid-cols-1 gap-8 xl:grid-cols-2">
         <section>
           <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Requests to confirm</h2><Link href="/seller/bookings?tab=requested" className="text-sm font-medium text-forest hover:underline">All bookings</Link></div>
           {requests.length ? (

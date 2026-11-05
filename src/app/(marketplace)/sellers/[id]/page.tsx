@@ -58,7 +58,7 @@ export default async function SellerProfilePage({ params }: Props) {
 
       <h2 className="mt-12 mb-4 text-2xl font-bold">Recent reviews</h2>
       {reviews.length ? (
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {reviews.map((r) => (
             <div key={r.id} className="card p-5">
               <div className="flex items-center justify-between"><Stars value={r.rating} /><span className="text-xs text-ink-faint">{formatDay(r.createdAt)}</span></div>

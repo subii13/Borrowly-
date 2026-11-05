@@ -35,7 +35,7 @@ export async function DisputeDetail({ disputeId, actor, children }: { disputeId:
         <h1 className="mt-1 text-2xl font-bold">{DISPUTE_CATEGORY_LABEL[d.category]}</h1>
         <div className="mt-2 flex items-center gap-2"><StatusBadge status={d.status} label={DISPUTE_STATUS_LABEL[d.status]} />{d.isDemo && <span className="text-xs text-ink-faint">Demonstration record</span>}</div>
       </div>
-      <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-6">
           <div className="card p-5">
             <h3 className="font-semibold">Description</h3>
