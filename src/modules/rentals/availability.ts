@@ -5,7 +5,9 @@ import { addDays, daysBetween, formatDayISO, rangesOverlap } from "@/lib/dates";
 /** Booking states that hold inventory. Cancelled/rejected/failed/completed bookings release it. */
 export const BLOCKING_BOOKING_STATUSES: BookingStatus[] = ["PENDING_PAYMENT", "REQUESTED", "CONFIRMED", "ACTIVE", "RETURN_PENDING"];
 
-type Reservation = { startDate: Date; endDate: Date; quantity: number };
+export const STALE_PAYMENT_MS = 15 * 60_000;
+
+type Reservation ={ startDate: Date; endDate: Date; quantity: number };
 
 /** Sum of reserved units overlapping [start, end). Pure — used by the DB query and unit tests. */
 export function overlappingQuantity(reservations: Reservation[], start: Date, end: Date): number {
@@ -32,7 +34,16 @@ export async function lockListing(tx: Tx, listingId: string) {
 export async function activeReservations(db: DbOrTx, listingId: string, start: Date, end: Date, now: Date, excludeHoldId?: string) {
   const [bookings, holds] = await Promise.all([
     db.rentalBooking.findMany({
-      where: { listingId, status: { in: BLOCKING_BOOKING_STATUSES }, startDate: { lt: end }, endDate: { gt: start } },
+      where: {
+        listingId,
+        startDate: { lt: end },
+        endDate: { gt: start },
+        // A booking stuck in PENDING_PAYMENT (e.g. the process died mid-checkout) stops blocking after 15 minutes.
+        OR: [
+          { status: { in: BLOCKING_BOOKING_STATUSES.filter((s) => s !== "PENDING_PAYMENT") } },
+          { status: "PENDING_PAYMENT", createdAt: { gt: new Date(now.getTime() - STALE_PAYMENT_MS) } },
+        ],
+      },
       select: { startDate: true, endDate: true, quantity: true },
     }),
     db.bookingHold.findMany({

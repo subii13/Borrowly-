@@ -21,6 +21,8 @@ async function main() {
     password: "borrowly",
     port: PORT,
     persistent: true,
+    // Force UTF-8: on Windows initdb otherwise inherits the WIN1252 code page.
+    initdbFlags: ["--encoding=UTF8", "--locale=C"],
     onLog: () => {},
   });
 

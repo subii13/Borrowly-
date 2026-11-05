@@ -26,7 +26,7 @@ export async function DisputeDetail({ disputeId, actor, children }: { disputeId:
   const party = txn && partyOf(actor, txn);
   if (!d || !txn || !party) notFound();
   const open = ["OPEN", "UNDER_REVIEW"].includes(d.status);
-  const txnHref = party === "admin" ? (d.booking ? `/admin/bookings?q=${txn.code}` : `/admin/purchases?q=${txn.code}`) : d.booking ? `/account/bookings/${txn.id}` : `/account/purchases/${txn.id}`;
+  const txnHref = party === "admin" ? (d.booking ? `/admin/bookings/${txn.id}` : `/admin/purchases/${txn.id}`) : d.booking ? `/account/bookings/${txn.id}` : `/account/purchases/${txn.id}`;
 
   return (
     <div className="space-y-6">
