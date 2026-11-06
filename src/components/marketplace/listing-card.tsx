@@ -6,11 +6,11 @@ import { CONDITION_LABEL } from "@/lib/constants";
 import { formatINR } from "@/lib/money";
 import type { ListingCardData } from "@/modules/listings/search";
 
-export function ListingCard({ listing, priority }: { listing: ListingCardData; priority?: boolean }) {
+export function ListingCard({ listing, priority, linkSuffix = "" }: { listing: ListingCardData; priority?: boolean; linkSuffix?: string }) {
   const image = listing.images[0];
   const soldOut = listing.status === "SOLD_OUT";
   return (
-    <Link href={`/listings/${listing.id}`} className="group flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-card transition-shadow hover:shadow-[var(--shadow-lift)]">
+    <Link href={`/listings/${listing.id}${linkSuffix}`} className="group flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-card transition-shadow hover:shadow-[var(--shadow-lift)]">
       <div className="relative aspect-[4/3] overflow-hidden">
         <SafeImage
           src={image?.url ?? ""}
@@ -56,10 +56,10 @@ export function ListingCard({ listing, priority }: { listing: ListingCardData; p
   );
 }
 
-export function ListingGrid({ listings }: { listings: ListingCardData[] }) {
+export function ListingGrid({ listings, linkSuffix }: { listings: ListingCardData[]; linkSuffix?: string }) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {listings.map((l, i) => <ListingCard key={l.id} listing={l} priority={i < 4} />)}
+      {listings.map((l, i) => <ListingCard key={l.id} listing={l} priority={i < 4} linkSuffix={linkSuffix} />)}
     </div>
   );
 }

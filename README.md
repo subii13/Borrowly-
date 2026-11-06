@@ -22,6 +22,22 @@ People rent items by the day or buy them second-hand from verified individuals a
 | Dashboards | **Customer:** bookings, purchases, favourites, notifications, disputes, transactions, profile. **Seller:** KPIs, earnings chart from real data, listings, a 7-step listing wizard with photo upload, bookings, orders, returns, verification. **Admin:** overview, users, sellers, verification queue, listing moderation, bookings, purchases, disputes, refunds, reports, audit logs, configurable commission, demo reset. |
 | Security | Database-backed sessions in httpOnly cookies, bcrypt, server-side role and ownership checks on every action, Zod validation, rate limiting, magic-byte upload validation with re-encoding, private evidence served through authorization, security headers. See [SECURITY.md](SECURITY.md). |
 
+## Borrowly Voice (Gnani AI)
+
+Borrowly lets people rent, list and record handovers by **speaking Tamil, Tanglish or English**, using Gnani AI's Indian-language speech models. See `/voice` on the site.
+
+| Feature | Gnani model | Where |
+| --- | --- | --- |
+| Voice search: *"Naalaiku oru DSLR camera venum, RS Puram la"* becomes item, area and dates, with the dates pre-selected on the booking calendar | **Prisma v3.0** STT (`ta-IN,en-IN`, code-mix) | mic in every search bar |
+| Speak to list: a spoken description fills brand, category, condition and prices | **Prisma v3.0** STT | Seller → Create listing |
+| Spoken replies in Tamil for search results and booking summaries (numbers said as Tamil words) | **Timbre v3.0** TTS (`ta-IN`) | Explore after a voice search; booking page |
+| Voice handover and return notes, saved as tamper-proof evidence | **Prisma v3.0** STT | Booking → handover / return step |
+
+- **How it works:** the browser records 16 kHz WAV and Borrowly's server calls `api.vachana.ai`, so the key never reaches the client. A deterministic parser (`src/modules/voice/understand.ts`) understands Tamil script, romanised Tanglish, number words ("rendu aayiram"), relative dates ("naalaiku") and Coimbatore areas. Spoken replies are composed on the server from live data and cached.
+- **Setup:** set `GNANI_API_KEY` in `.env` (create one at app.gnani.ai/voice).
+- **Live check** (spends a few credits): `npx tsx --env-file=.env scripts/voice-smoke.ts`.
+- **Contest:** the submission kit is in [docs/GNANI_SUBMISSION.md](docs/GNANI_SUBMISSION.md).
+
 ## Tech stack
 
 Next.js 16 (App Router, Server Actions) · React 19 · TypeScript · Tailwind CSS 4 · Lucide · PostgreSQL · Prisma 6 · Zod 4 · React Hook Form · Vitest · Playwright · embedded-postgres (local dev) · Supabase-ready storage adapter · Vercel-ready.

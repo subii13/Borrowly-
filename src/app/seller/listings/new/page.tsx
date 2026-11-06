@@ -11,7 +11,7 @@ export const metadata: Metadata = { title: "Create listing" };
 export default async function NewListingPage() {
   const { actor } = await requireSellerPage();
   const [categories, seller] = await Promise.all([
-    db.category.findMany({ orderBy: { sortOrder: "asc" }, select: { id: true, name: true } }),
+    db.category.findMany({ orderBy: { sortOrder: "asc" }, select: { id: true, name: true, slug: true } }),
     db.sellerProfile.findUniqueOrThrow({ where: { id: actor.sellerId } }),
   ]);
   const area = AREAS.find((a) => a.name === seller.area);

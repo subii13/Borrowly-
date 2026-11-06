@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Logo } from "./logo";
 
 const columns = [
-  { title: "Marketplace", links: [["Explore", "/explore"], ["How it works", "/how-it-works"], ["Explore the demo", "/demo"]] },
+  { title: "Marketplace", links: [["Explore", "/explore"], ["How it works", "/how-it-works"], ["Borrowly Voice", "/voice"], ["Explore the demo", "/demo"]] },
   { title: "Sellers", links: [["Sell on Borrowly", "/sell"], ["Seller dashboard", "/seller"], ["Seller verification", "/seller/verification"]] },
   { title: "Company", links: [["About", "/about"], ["Contact", "/contact"], ["Help & FAQ", "/faq"]] },
   { title: "Legal", links: [["Terms", "/terms"], ["Privacy", "/privacy"], ["Image credits", "/credits"]] },

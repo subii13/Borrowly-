@@ -12,8 +12,9 @@ import { listingSchema, type ListingInput } from "@/lib/validation";
 import type { ActionResult } from "@/lib/errors";
 import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/primitives";
+import { VoiceListingAssist } from "@/components/voice/voice-listing";
 
-type Category = { id: string; name: string };
+type Category = { id: string; name: string; slug: string };
 type FormImage = { id?: string; storageKey?: string; url: string };
 
 const STEPS: { title: string; fields: FieldPath<ListingInput>[] }[] = [
@@ -102,6 +103,22 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
         <div className="mt-6 space-y-5">
           {step === 0 && (
             <>
+              <VoiceListingAssist
+                onDraft={(d) => {
+                  const opts = { shouldValidate: true, shouldDirty: true } as const;
+                  if (d.title) setValue("title", d.title, opts);
+                  setValue("description", d.description, opts);
+                  if (d.brand) setValue("brand", d.brand, opts);
+                  setValue("condition", d.condition, opts);
+                  const cat = categories.find((c) => c.slug === d.categorySlug);
+                  if (cat) setValue("categoryId", cat.id, opts);
+                  setValue("rentalEnabled", d.rentalEnabled, opts);
+                  setValue("purchaseEnabled", d.purchaseEnabled, opts);
+                  if (d.dailyRate !== undefined) setValue("dailyRate", String(d.dailyRate), opts);
+                  if (d.deposit !== undefined) setValue("deposit", String(d.deposit), opts);
+                  if (d.salePrice !== undefined) setValue("salePrice", String(d.salePrice), opts);
+                }}
+              />
               <Field label="Title" htmlFor="title" error={err("title")} hint="e.g. Canon EOS 80D with 18-135mm lens"><input id="title" className="input" {...register("title")} /></Field>
               <Field label="Description" htmlFor="description" error={err("description")} hint="Condition, what's included, and anything a renter should know"><textarea id="description" className="input min-h-36" {...register("description")} /></Field>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

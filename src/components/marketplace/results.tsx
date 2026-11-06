@@ -8,7 +8,7 @@ import { Pagination } from "./pagination";
 import { EmptyState } from "@/components/ui/primitives";
 import { ButtonLink } from "@/components/ui/button";
 
-export async function Results({ filters, basePath, lockCategory, rawParams }: { filters: SearchFilters; basePath: string; lockCategory?: string; rawParams: Record<string, string | undefined> }) {
+export async function Results({ filters, basePath, lockCategory, rawParams, linkSuffix }: { filters: SearchFilters; basePath: string; lockCategory?: string; rawParams: Record<string, string | undefined>; linkSuffix?: string }) {
   const [result, categories] = await Promise.all([
     searchListings(db, filters),
     db.category.findMany({ orderBy: { sortOrder: "asc" }, select: { slug: true, name: true } }),
@@ -30,7 +30,7 @@ export async function Results({ filters, basePath, lockCategory, rawParams }: { 
           </Suspense>
         </div>
         {result.items.length ? (
-          <ListingGrid listings={result.items} />
+          <ListingGrid listings={result.items} linkSuffix={linkSuffix} />
         ) : (
           <EmptyState icon={SearchX} title="Nothing matches yet" body="Try a broader search, another area, or clear a filter. New items are listed every day." action={<ButtonLink href={basePath} variant="secondary" size="sm">Clear filters</ButtonLink>} />
         )}

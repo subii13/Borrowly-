@@ -15,14 +15,18 @@ import { FavouriteButton } from "@/components/product/favourite-button";
 import { ListingGrid } from "@/components/marketplace/listing-card";
 import { Avatar, Badge, Rating, Stars } from "@/components/ui/primitives";
 
-type Props = { params: Promise<{ id: string }> };
+type Props = { params: Promise<{ id: string }>; searchParams?: Promise<{ start?: string; end?: string }> };
+
+const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const l = await db.listing.findUnique({ where: { id: (await params).id }, select: { title: true, description: true } });
   return l ? { title: l.title, description: l.description.slice(0, 150) } : { title: "Listing" };
 }
 
-export default async function ListingPage({ params }: Props) {
+export default async function ListingPage({ params, searchParams }: Props) {
+  const sp = (await searchParams) ?? {};
+  const initialDates = sp.start && sp.end && ISO_DAY.test(sp.start) && ISO_DAY.test(sp.end) && sp.start < sp.end ? { start: sp.start, end: sp.end } : null;
   const { id } = await params;
   const [listing, user, settings] = await Promise.all([db.listing.findUnique({ where: { id }, include: detailInclude }), getCurrentUser(), getSettings(db)]);
   const isOwner = !!user?.sellerProfile && user.sellerProfile.id === listing?.sellerId;
@@ -148,6 +152,7 @@ export default async function ListingPage({ params }: Props) {
             signedIn={!!user}
             isOwner={isOwner}
             serviceFeeBps={settings.customerFeeBps}
+            initialDates={initialDates}
           />
         </aside>
       </div>

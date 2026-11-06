@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, CalendarCheck, Camera, FileCheck2, HandCoins, MapPin, PackageSearch, ShieldCheck, Store } from "lucide-react";
+import { ArrowRight, BadgeCheck, CalendarCheck, Camera, FileCheck2, HandCoins, MapPin, Mic, PackageSearch, ShieldCheck, Store } from "lucide-react";
 import { db } from "@/lib/db";
 import { AREAS, POPULAR_SEARCHES } from "@/lib/constants";
 import { formatINR } from "@/lib/money";
@@ -46,6 +46,13 @@ export default async function HomePage() {
                   </Link>
                 ))}
               </div>
+              <p className="mt-4 flex items-start gap-2 rounded-xl border border-forest/20 bg-forest-50/60 px-3.5 py-2.5 text-sm text-ink-soft">
+                <Mic className="mt-0.5 size-4 shrink-0 text-forest" aria-hidden />
+                <span>
+                  <span className="font-medium text-ink">Speak in Tamil, Tanglish or English.</span> Tap the mic and try <span lang="ta" className="text-forest">“Naalaiku oru DSLR camera venum, RS Puram la”</span>.{" "}
+                  <Link href="/voice" className="font-medium text-forest underline underline-offset-2">Voice by Gnani AI</Link>
+                </span>
+              </p>
             </div>
             <dl className="mt-10 flex gap-8 text-sm">
               <div><dt className="text-ink-faint">Active listings</dt><dd className="font-display text-2xl font-bold">{activeListings}</dd></div>

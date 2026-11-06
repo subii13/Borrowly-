@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { clsx } from "clsx";
 import { Search } from "lucide-react";
+import { MicButton } from "@/components/voice/mic-button";
+import { rememberVoiceSearch, type VoiceSearchResult } from "@/components/voice/voice-search";
 
 type Suggestion = { id: string; title: string; category: string };
 
@@ -68,6 +70,15 @@ export function SearchBar({ initial = "", size = "md", autoFocus }: { initial?: 
           aria-autocomplete="list"
           aria-controls={listId}
           className={clsx("min-w-0 flex-1 bg-transparent text-ink placeholder:text-ink-faint focus:outline-none", size === "lg" ? "py-2.5 text-base" : "py-1.5 text-[15px]")}
+        />
+        <MicButton<VoiceSearchResult>
+          purpose="search"
+          label="Search by voice"
+          onResult={(r) => {
+            rememberVoiceSearch(r);
+            setQ(r.intent.q ?? "");
+            router.push(r.url);
+          }}
         />
         <button type="submit" className={clsx("shrink-0 rounded-lg bg-forest font-medium text-white hover:bg-forest-dark", size === "lg" ? "px-5 py-3" : "px-4 py-2 text-sm")}>
           Search

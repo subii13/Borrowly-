@@ -12,6 +12,8 @@ export const env = {
   privateBucket: process.env.SUPABASE_PRIVATE_BUCKET ?? "evidence",
   localStorageDir: process.env.LOCAL_STORAGE_DIR ?? ".data",
   paymentProvider: process.env.PAYMENT_PROVIDER ?? "demo",
+  /** Gnani AI (Vachana) API key for Prisma speech-to-text and Timbre text-to-speech. Server-only. */
+  gnaniApiKey: process.env.GNANI_API_KEY?.trim() || undefined,
 };
 
 export const storageMode = () => (env.supabaseUrl && env.supabaseServiceRoleKey ? "supabase" : "local");

@@ -32,15 +32,21 @@ const DAY = 86_400_000;
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 const fromIso = (s: string) => new Date(`${s}T00:00:00Z`);
 
-export function BookingPanel({ listing, signedIn, isOwner, serviceFeeBps }: { listing: Listing; signedIn: boolean; isOwner: boolean; serviceFeeBps: number }) {
+export function BookingPanel({ listing, signedIn, isOwner, serviceFeeBps, initialDates }: { listing: Listing; signedIn: boolean; isOwner: boolean; serviceFeeBps: number; initialDates?: { start: string; end: string } | null }) {
   const router = useRouter();
   const canRent = listing.rentalEnabled && listing.dailyRatePaise !== null && listing.status === "ACTIVE";
   const canBuy = listing.purchaseEnabled && listing.salePricePaise !== null && listing.status === "ACTIVE";
   const [mode, setMode] = useState<"rent" | "buy">(canRent ? "rent" : "buy");
   const [days, setDays] = useState<{ date: string; available: number }[]>([]);
-  const [start, setStart] = useState<string | null>(null);
-  const [end, setEnd] = useState<string | null>(null);
-  const [month, setMonth] = useState(0);
+  // Dates from a voice search arrive pre-selected; the server still re-checks availability and price.
+  const [start, setStart] = useState<string | null>(initialDates?.start ?? null);
+  const [end, setEnd] = useState<string | null>(initialDates?.end ?? null);
+  const [month, setMonth] = useState(() => {
+    if (!initialDates) return 0;
+    const now = new Date();
+    const s = new Date(`${initialDates.start}T00:00:00Z`);
+    return Math.max(0, Math.min(2, (s.getUTCFullYear() - now.getUTCFullYear()) * 12 + s.getUTCMonth() - now.getUTCMonth()));
+  });
   const [quote, setQuote] = useState<Quote | null>(null);
   const [quoteError, setQuoteError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();

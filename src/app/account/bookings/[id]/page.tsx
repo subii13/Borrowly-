@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { requireUserPage } from "@/lib/session";
 import { BookingDetail } from "@/components/orders/transaction-detail";
+import { ListenButton } from "@/components/voice/listen-button";
 
 export const metadata: Metadata = { title: "Booking" };
 
@@ -22,6 +23,9 @@ export default async function BookingPage({ params, searchParams }: { params: Pr
           </div>
         </div>
       )}
+      <div className="mb-4 flex justify-end">
+        <ListenButton src={`/api/voice/reply?kind=booking&id=${encodeURIComponent(id)}`} label="கேட்க / Hear this booking in Tamil" />
+      </div>
       <BookingDetail bookingId={id} actor={actor} />
     </>
   );

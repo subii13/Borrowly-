@@ -14,7 +14,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
   const { actor } = await requireSellerPage();
   const [listing, categories] = await Promise.all([
     db.listing.findUnique({ where: { id }, include: { images: { orderBy: { sortOrder: "asc" } } } }),
-    db.category.findMany({ orderBy: { sortOrder: "asc" }, select: { id: true, name: true } }),
+    db.category.findMany({ orderBy: { sortOrder: "asc" }, select: { id: true, name: true, slug: true } }),
   ]);
   // Ownership enforced here and again in the update service.
   if (!listing || listing.sellerId !== actor.sellerId || listing.status === "SUSPENDED") notFound();

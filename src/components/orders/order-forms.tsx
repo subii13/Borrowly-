@@ -9,6 +9,7 @@ import type { ActionResult } from "@/lib/errors";
 import { DISPUTE_CATEGORY_LABEL } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { ImageUploader, type Uploaded } from "@/components/forms/image-uploader";
+import { MicButton } from "@/components/voice/mic-button";
 
 /** Confirms a handover/return step with an optional note and photos (immutable evidence). */
 export function ConfirmStepForm({ action, label, help }: { action: (input: unknown) => Promise<ActionResult<unknown>>; label: string; help: string }) {
@@ -21,6 +22,16 @@ export function ConfirmStepForm({ action, label, help }: { action: (input: unkno
       <p className="font-semibold">{label}</p>
       <p className="mt-0.5 text-sm text-ink-soft">{help}</p>
       <textarea className="input mt-3 min-h-20 bg-white" placeholder="Condition notes (e.g. accessories included, any marks)" value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} aria-label="Condition notes" />
+      <div className="mt-2 flex flex-wrap items-center gap-2">
+        <MicButton<{ transcript: string }>
+          purpose="note"
+          variant="pill"
+          label="Speak the notes"
+          maxSeconds={25}
+          onResult={(r) => setNote((n) => (n.trim() ? `${n.trim()} ${r.transcript}` : r.transcript).slice(0, 1000))}
+        />
+        <span className="text-xs text-ink-faint">Tamil, Tanglish or English — transcribed by Gnani Prisma. Review before confirming.</span>
+      </div>
       <div className="mt-3"><ImageUploader scope="evidence" value={photos} onChange={setPhotos} label="Add evidence photos" /></div>
       <p className="mt-2 text-xs text-ink-faint">Evidence is visible only to you, the other party and Borrowly admins, and cannot be edited after submission.</p>
       <Button
