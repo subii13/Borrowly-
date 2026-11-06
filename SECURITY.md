@@ -43,7 +43,7 @@
 ## CSRF, headers, rate limits
 
 - Server Actions get Next.js's built-in Origin/Host check. Mutating API routes check `Origin` themselves. `SameSite=Lax` cookies add a further layer.
-- Headers set on every response: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`, `Strict-Transport-Security`. The `X-Powered-By` header is removed.
+- Headers set on every response: `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (camera and geolocation off; microphone allowed for Borrowly's own origin only, for Borrowly Voice), `Strict-Transport-Security`. The `X-Powered-By` header is removed.
 - Rate limits: login 10/min, register 5/min, forgot/reset password, demo login, holds 20/min, checkout 15/min, uploads 30/min, OTP 3/min. **Limitation:** the store is in process memory, so on multi-instance serverless deployments the limits apply per instance. Use Redis (e.g. Upstash) for production.
 
 ## Privacy
