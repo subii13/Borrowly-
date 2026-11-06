@@ -3,6 +3,7 @@ import { parseDay } from "@/lib/dates";
 import { exploreUrl, parseListingDraft, parseSearchIntent, tokenize } from "@/modules/voice/understand";
 import { bookingReply, searchReply, tamilNumber } from "@/modules/voice/reply";
 import { isWav, setGnaniFetch, synthesize, transcribe } from "@/modules/voice/gnani";
+import { SilenceDetector } from "@/components/voice/silence";
 
 const today = parseDay("2026-11-06"); // a Friday
 
@@ -104,6 +105,33 @@ describe("spoken replies", () => {
     expect(searchReply({ tamil: true, total: 0, itemLabel: "camera", areaTa: "பீளமேடு", elsewhere: 6 })).toContain("ஆறு கிடைக்கின்றன");
     expect(searchReply({ tamil: false, total: 0, itemLabel: "camera", area: "Peelamedu", elsewhere: 1 })).toContain("there is 1 match elsewhere");
     expect(bookingReply({ title: "JBL Flip", status: "REQUESTED", days: 3, totalPaise: 211_200 })).toContain("இரண்டு ஆயிரத்து நூற்றி பன்னிரண்டு ரூபாய்");
+  });
+});
+
+describe("end-of-speech detection", () => {
+  // Simulates ~85 ms audio frames: `noise` RMS before and after `speechMs` of speech at `voice` RMS.
+  function stopsAt(noise: number, voice: number, speechMs = 2000) {
+    const d = new SilenceDetector();
+    for (let t = 0; t < 15_000; t += 85) {
+      const speaking = t >= 500 && t < 500 + speechMs;
+      const jitter = 1 + 0.2 * Math.sin(t / 37);
+      if (d.push((speaking ? voice : noise) * jitter, t, 0)) return t;
+    }
+    return null;
+  }
+
+  it("stops about 1.3 s after speech in a quiet room", () => {
+    const t = stopsAt(0.003, 0.06)!;
+    expect(t).toBeGreaterThan(2500 + 1200);
+    expect(t).toBeLessThan(2500 + 1700);
+  });
+
+  it("still stops with a noisy, auto-gained mic (the old fixed threshold never did)", () => {
+    expect(stopsAt(0.03, 0.18)).not.toBeNull();
+  });
+
+  it("does not stop before anyone speaks", () => {
+    expect(stopsAt(0.004, 0.004)).toBeNull();
   });
 });
 

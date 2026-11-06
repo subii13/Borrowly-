@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AudioLines, Loader2, Mic, Volume2, X } from "lucide-react";
+import { Loader2, Mic, Square, Volume2, X } from "lucide-react";
+import { playExclusive, stopSpeech } from "./speech-bus";
 import type { SearchIntent } from "@/modules/voice/understand";
 
 export type VoiceSearchResult = { transcript: string; language: string | null; latencyMs: number | null; intent: SearchIntent; url: string };
@@ -49,7 +50,8 @@ export function VoiceSearchPanel({ replyUrl }: { replyUrl: string }) {
     el.onplaying = () => setAudioState("playing");
     el.onended = () => setAudioState("ready");
     el.onerror = () => setAudioState("error");
-    el.play().catch(() => setAudioState((s) => (s === "error" ? s : "ready")));
+    el.onpause = () => setAudioState((s) => (s === "playing" ? "ready" : s));
+    playExclusive(el).catch(() => setAudioState((s) => (s === "error" ? s : "ready")));
     return () => {
       el.pause();
       el.src = "";
@@ -82,17 +84,22 @@ export function VoiceSearchPanel({ replyUrl }: { replyUrl: string }) {
           <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-ink-faint">
             <button
               type="button"
-              onClick={() => audio.current && (audio.current.currentTime = 0, void audio.current.play())}
+              onClick={() => {
+                if (!audio.current) return;
+                if (audioState === "playing") stopSpeech();
+                else void playExclusive(audio.current).catch(() => setAudioState("error"));
+              }}
+              aria-pressed={audioState === "playing"}
               disabled={audioState === "loading" || audioState === "error"}
               className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 font-medium text-forest ring-1 ring-forest/20 disabled:opacity-60"
             >
-              {audioState === "loading" ? <Loader2 className="size-3.5 animate-spin" /> : audioState === "playing" ? <AudioLines className="size-3.5" /> : <Volume2 className="size-3.5" />}
-              {audioState === "loading" ? "Preparing reply…" : audioState === "playing" ? "Speaking…" : audioState === "error" ? "Spoken reply unavailable" : lang === "ta" ? "கேட்க / Listen" : "Listen"}
+              {audioState === "loading" ? <Loader2 className="size-3.5 animate-spin" /> : audioState === "playing" ? <Square className="size-3 fill-current" /> : <Volume2 className="size-3.5" />}
+              {audioState === "loading" ? "Preparing reply…" : audioState === "playing" ? (lang === "ta" ? "நிறுத்து / Stop" : "Stop") : audioState === "error" ? "Spoken reply unavailable" : lang === "ta" ? "கேட்க / Listen" : "Listen"}
             </button>
             <span>Speech recognised by Gnani Prisma{result.language ? ` (${result.language})` : ""}{result.latencyMs ? ` in ${result.latencyMs} ms` : ""} · reply voiced by Gnani Timbre</span>
           </div>
         </div>
-        <button type="button" onClick={() => setHidden(true)} className="grid size-8 place-items-center rounded-lg text-ink-faint hover:bg-white" aria-label="Dismiss"><X className="size-4" /></button>
+        <button type="button" onClick={() => { stopSpeech(); setHidden(true); }} className="grid size-8 place-items-center rounded-lg text-ink-faint hover:bg-white" aria-label="Dismiss"><X className="size-4" /></button>
       </div>
     </section>
   );

@@ -3,6 +3,8 @@
 // Captures microphone audio and encodes 16 kHz mono 16-bit WAV in the browser, which
 // Gnani Prisma accepts directly (MediaRecorder's WebM/Opus is not a supported format).
 
+import { SilenceDetector } from "./silence";
+
 const TARGET_RATE = 16_000;
 
 export type Recording = { blob: Blob; seconds: number };
@@ -14,8 +16,8 @@ export class WavRecorder {
   private chunks: Float32Array[] = [];
   private rate = 48_000;
   private startedAt = 0;
-  private heardSpeechAt = 0;
-  private lastLoudAt = 0;
+  private detector = new SilenceDetector();
+  private autoStopped = false;
 
   constructor(private opts: { maxSeconds: number; onLevel?: (level: number) => void; onAutoStop?: () => void }) {}
 
@@ -27,22 +29,22 @@ export class WavRecorder {
     this.node = this.ctx.createScriptProcessor(4096, 1, 1);
     this.chunks = [];
     this.startedAt = performance.now();
-    this.heardSpeechAt = 0;
+    this.detector = new SilenceDetector();
+    this.autoStopped = false;
     this.node.onaudioprocess = (e) => {
       const data = new Float32Array(e.inputBuffer.getChannelData(0));
       this.chunks.push(data);
       let sum = 0;
       for (let i = 0; i < data.length; i++) sum += data[i] * data[i];
-      const level = Math.min(1, Math.sqrt(sum / data.length) * 8);
-      this.opts.onLevel?.(level);
+      const rms = Math.sqrt(sum / data.length);
+      this.opts.onLevel?.(Math.min(1, rms * 12));
       const now = performance.now();
-      if (level > 0.12) {
-        this.lastLoudAt = now;
-        if (!this.heardSpeechAt) this.heardSpeechAt = now;
+      // Stop ~1.3 s after the speaker finishes, or at the time limit.
+      const done = this.detector.push(rms, now, this.startedAt) || (now - this.startedAt) / 1000 >= this.opts.maxSeconds;
+      if (done && !this.autoStopped) {
+        this.autoStopped = true;
+        this.opts.onAutoStop?.();
       }
-      const elapsed = (now - this.startedAt) / 1000;
-      // Stop after ~1.6 s of silence once the user has spoken, or at the time limit.
-      if ((this.heardSpeechAt && now - this.lastLoudAt > 1600 && now - this.heardSpeechAt > 800) || elapsed >= this.opts.maxSeconds) this.opts.onAutoStop?.();
     };
     source.connect(this.node);
     this.node.connect(this.ctx.destination);

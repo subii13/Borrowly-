@@ -5,6 +5,7 @@ import { clsx } from "clsx";
 import { Loader2, Mic, Square } from "lucide-react";
 import { toast } from "sonner";
 import { WavRecorder } from "./recorder";
+import { stopSpeech } from "./speech-bus";
 
 type State = "idle" | "recording" | "processing";
 
@@ -77,6 +78,8 @@ export function MicButton<T>({
       toast.error("Your browser doesn't support microphone input.");
       return;
     }
+    // Don't record our own spoken reply: silence it first.
+    stopSpeech();
     try {
       recorder.current = new WavRecorder({ maxSeconds, onLevel: setLevel, onAutoStop: () => void finish() });
       await recorder.current.start();

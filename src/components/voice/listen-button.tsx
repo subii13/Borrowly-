@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { AudioLines, Loader2, Volume2 } from "lucide-react";
 import { toast } from "sonner";
+import { playExclusive, stopSpeech } from "./speech-bus";
 
 /** Plays a server-composed spoken reply (Gnani Timbre) — e.g. a Tamil booking summary. */
 export function ListenButton({ src, label = "கேட்க / Listen in Tamil" }: { src: string; label?: string }) {
@@ -11,7 +12,7 @@ export function ListenButton({ src, label = "கேட்க / Listen in Tamil" 
 
   const play = async () => {
     if (state === "playing") {
-      audio.current?.pause();
+      stopSpeech();
       setState("idle");
       return;
     }
@@ -26,8 +27,7 @@ export function ListenButton({ src, label = "கேட்க / Listen in Tamil" 
         audio.current = new Audio(URL.createObjectURL(await res.blob()));
         audio.current.onended = () => setState("idle");
       }
-      audio.current.currentTime = 0;
-      await audio.current.play();
+      await playExclusive(audio.current);
       setState("playing");
     } catch (e) {
       setState("idle");
