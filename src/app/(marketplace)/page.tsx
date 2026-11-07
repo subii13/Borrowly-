@@ -9,6 +9,7 @@ import { SearchBar } from "@/components/marketplace/search-bar";
 import { ListingGrid } from "@/components/marketplace/listing-card";
 import { SafeImage } from "@/components/ui/safe-image";
 import { ButtonLink } from "@/components/ui/button";
+import { HeroVoice } from "@/components/three/hero-voice";
 
 export const dynamic = "force-dynamic";
 
@@ -27,53 +28,50 @@ export default async function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="container-page grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[1.05fr_1fr] lg:py-20">
+        {/* Layered backdrop: soft green light and a faint grid for depth. */}
+        <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
+          <div className="absolute -right-40 -top-40 size-[720px] rounded-full bg-[radial-gradient(circle,rgba(127,207,159,0.28),transparent_65%)]" />
+          <div className="absolute -left-32 bottom-0 size-[480px] rounded-full bg-[radial-gradient(circle,rgba(36,92,70,0.10),transparent_65%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(32,36,31,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(32,36,31,0.04)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+        </div>
+        <div className="container-page grid grid-cols-1 items-center gap-8 py-10 md:py-14 lg:grid-cols-[1.05fr_1fr] lg:py-16">
           <div>
-            <p className="eyebrow">Now live in Coimbatore</p>
-            <h1 className="mt-4 text-[44px] font-extrabold leading-[1.02] sm:text-6xl lg:text-[68px]">
+            <div className="flex flex-wrap items-center gap-2 [animation:rise_700ms_ease-out_both]">
+              <p className="eyebrow">Now live in Coimbatore</p>
+              <Link href="/voice" className="inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-white/80 px-2.5 py-1 text-xs font-medium text-forest shadow-sm backdrop-blur hover:border-forest/40">
+                <Mic className="size-3.5" aria-hidden /> Voice in Tamil · Gnani AI
+              </Link>
+            </div>
+            <h1 className="mt-4 text-[44px] font-extrabold leading-[1.02] [animation:rise_700ms_120ms_ease-out_both] sm:text-6xl lg:text-[68px]">
               Own less.
               <br />
-              <span className="text-forest">Access more.</span>
+              <span className="bg-gradient-to-r from-forest via-[#2f7a5a] to-[#4f9c78] bg-clip-text text-transparent">Access more.</span>
             </h1>
-            <p className="mt-5 max-w-lg text-lg text-ink-soft">Rent or buy pre-owned items from verified individuals and small businesses in Coimbatore.</p>
-            <div className="mt-8 max-w-xl">
+            <p className="mt-5 max-w-lg text-lg text-ink-soft [animation:rise_700ms_220ms_ease-out_both]">
+              Rent or buy pre-owned items from verified individuals and small businesses in Coimbatore — just say what you need.
+            </p>
+            <div className="mt-8 max-w-xl [animation:rise_700ms_320ms_ease-out_both]">
               <SearchBar size="lg" />
               <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
                 <span className="text-ink-faint">Popular:</span>
                 {POPULAR_SEARCHES.map((s) => (
-                  <Link key={s} href={`/explore?q=${encodeURIComponent(s)}`} className="rounded-full border border-line bg-white px-3 py-1 text-ink-soft hover:border-forest hover:text-forest">
+                  <Link key={s} href={`/explore?q=${encodeURIComponent(s)}`} className="rounded-full border border-line bg-white/80 px-3 py-1 text-ink-soft backdrop-blur transition-colors hover:border-forest hover:text-forest">
                     {s}
                   </Link>
                 ))}
               </div>
-              <p className="mt-4 flex items-start gap-2 rounded-xl border border-forest/20 bg-forest-50/60 px-3.5 py-2.5 text-sm text-ink-soft">
-                <Mic className="mt-0.5 size-4 shrink-0 text-forest" aria-hidden />
-                <span>
-                  <span className="font-medium text-ink">Speak in Tamil, Tanglish or English.</span> Tap the mic and try <span lang="ta" className="text-forest">“Naalaiku oru DSLR camera venum, RS Puram la”</span>.{" "}
-                  <Link href="/voice" className="font-medium text-forest underline underline-offset-2">Voice by Gnani AI</Link>
-                </span>
-              </p>
             </div>
-            <dl className="mt-10 flex gap-8 text-sm">
+            <dl className="mt-10 flex gap-8 text-sm [animation:rise_700ms_420ms_ease-out_both]">
               <div><dt className="text-ink-faint">Active listings</dt><dd className="font-display text-2xl font-bold">{activeListings}</dd></div>
               <div><dt className="text-ink-faint">Verified sellers</dt><dd className="font-display text-2xl font-bold">{verifiedSellers}</dd></div>
               <div><dt className="text-ink-faint">Neighbourhoods</dt><dd className="font-display text-2xl font-bold">{AREAS.length}</dd></div>
             </dl>
           </div>
 
-          <div className="relative grid h-[420px] grid-cols-2 grid-rows-2 gap-3 sm:h-[520px]">
-            {hero.map((l, i) => (
-              <Link key={l.id} href={`/listings/${l.id}`} className={`group relative overflow-hidden rounded-2xl border border-line bg-white ${i === 0 ? "row-span-2" : ""}`}>
-                <SafeImage src={l.images[0]?.url ?? ""} alt={l.title} fill priority sizes="(min-width: 1024px) 300px, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                <div className="absolute inset-x-2 bottom-2 rounded-xl bg-white/95 p-3 shadow-sm backdrop-blur">
-                  <p className="line-clamp-1 text-sm font-semibold">{l.title}</p>
-                  <p className="mt-0.5 flex items-center justify-between text-xs text-ink-soft">
-                    <span className="inline-flex items-center gap-1"><MapPin className="size-3" />{l.area}</span>
-                    <span className="font-semibold text-forest">{formatINR(l.dailyRatePaise)}/day</span>
-                  </p>
-                </div>
-              </Link>
-            ))}
+          <div className="[animation:rise_900ms_200ms_ease-out_both]">
+            <HeroVoice
+              listings={hero.map((l) => ({ id: l.id, title: l.title, area: l.area, price: `${formatINR(l.dailyRatePaise)}/day`, image: l.images[0]?.url ?? "" }))}
+            />
           </div>
         </div>
       </section>

@@ -1,13 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 import { Loader2, Mic, Square } from "lucide-react";
-import { toast } from "sonner";
-import { WavRecorder } from "./recorder";
-import { stopSpeech } from "./speech-bus";
-
-type State = "idle" | "recording" | "processing";
+import { useVoiceCapture } from "./use-voice-capture";
 
 /**
  * Records speech, sends it to /api/voice/transcribe (Gnani Prisma on the server) and hands the
@@ -28,70 +23,9 @@ export function MicButton<T>({
   maxSeconds?: number;
   className?: string;
 }) {
-  const [state, setState] = useState<State>("idle");
-  const [level, setLevel] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const recorder = useRef<WavRecorder | null>(null);
-  const stopping = useRef(false);
+  const { state, level, seconds, toggle } = useVoiceCapture<T>({ purpose, onResult, maxSeconds });
 
-  useEffect(() => {
-    if (state !== "recording") return;
-    const started = Date.now();
-    const t = setInterval(() => setSeconds(Math.floor((Date.now() - started) / 1000)), 250);
-    return () => clearInterval(t);
-  }, [state]);
-
-  useEffect(() => () => recorder.current?.cancel(), []);
-
-  const finish = async () => {
-    if (!recorder.current || stopping.current) return;
-    stopping.current = true;
-    setState("processing");
-    try {
-      const rec = await recorder.current.stop();
-      recorder.current = null;
-      if (rec.seconds < 0.5) {
-        toast.message("Hold on — that was too short. Tap the mic and speak.");
-        return;
-      }
-      const body = new FormData();
-      body.set("audio", rec.blob, "speech.wav");
-      body.set("purpose", purpose);
-      const res = await fetch("/api/voice/transcribe", { method: "POST", body });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        toast.error(data.error ?? "Voice request failed");
-        return;
-      }
-      onResult(data as T);
-    } catch {
-      toast.error("Something went wrong with the recording. Please try again.");
-    } finally {
-      stopping.current = false;
-      setState("idle");
-      setLevel(0);
-    }
-  };
-
-  const start = async () => {
-    if (!navigator.mediaDevices?.getUserMedia) {
-      toast.error("Your browser doesn't support microphone input.");
-      return;
-    }
-    // Don't record our own spoken reply: silence it first.
-    stopSpeech();
-    try {
-      recorder.current = new WavRecorder({ maxSeconds, onLevel: setLevel, onAutoStop: () => void finish() });
-      await recorder.current.start();
-      setSeconds(0);
-      setState("recording");
-    } catch {
-      recorder.current = null;
-      toast.error("Microphone access was blocked. Allow it in your browser to use voice.");
-    }
-  };
-
-  const onClick = () => (state === "idle" ? start() : state === "recording" ? finish() : undefined);
+  const onClick = toggle;
   const recording = state === "recording";
   const ariaLabel = recording ? "Stop recording" : state === "processing" ? "Transcribing" : label;
 
