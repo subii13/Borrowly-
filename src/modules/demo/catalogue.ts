@@ -16,7 +16,7 @@ export const categories = [
 
 export type DemoUserKey =
   | "admin" | "arjun" | "karthik" | "divya" | "senthil" | "rahul" | "farhan" | "ananya" | "vikram"
-  | "sneha" | "irfan" | "kavya" | "deepak" | "nithya" | "gokul";
+  | "sneha" | "irfan" | "kavya" | "deepak" | "nithya" | "gokul" | "lakshmi";
 
 export const users: { key: DemoUserKey; email: string; name: string; role?: "ADMIN"; area: string; phone: string }[] = [
   { key: "admin", email: "admin@borrowly.demo", name: "Meera Iyer", role: "ADMIN", area: "Race Course", phone: "9840000001" },
@@ -34,9 +34,10 @@ export const users: { key: DemoUserKey; email: string; name: string; role?: "ADM
   { key: "deepak", email: "deepak@borrowly.demo", name: "Deepak Chandran", area: "Singanallur", phone: "9840000013" },
   { key: "nithya", email: "nithya@borrowly.demo", name: "Nithya Balaji", area: "Vadavalli", phone: "9840000014" },
   { key: "gokul", email: "gokul@borrowly.demo", name: "Gokul Murugan", area: "Saibaba Colony", phone: "9840000015" },
+  { key: "lakshmi", email: "lakshmi@borrowly.demo", name: "Lakshmi Venkatesh", area: "Peelamedu", phone: "9840000016" },
 ];
 
-export type SellerKey = "karthik" | "divya" | "senthil" | "rahul" | "farhan" | "ananya" | "vikram";
+export type SellerKey = "karthik" | "divya" | "senthil" | "rahul" | "farhan" | "ananya" | "vikram" | "lakshmi";
 
 export const sellers: Record<SellerKey, { displayName: string; type: "INDIVIDUAL" | "BUSINESS"; area: string; pincode: string; bio: string; pickupAddress: string; status: "VERIFIED" | "PENDING" | "NOT_SUBMITTED" | "REJECTED"; reviewNote?: string }> = {
   karthik: { displayName: "Raman Gear Hub", type: "BUSINESS", area: "RS Puram", pincode: "641002", status: "VERIFIED", bio: "Camera and creator-gear rentals run by a working wedding photographer. Every kit is cleaned, tested and batteries charged before pickup.", pickupAddress: "12, DB Road, RS Puram (demo address)" },
@@ -45,6 +46,7 @@ export const sellers: Record<SellerKey, { displayName: string; type: "INDIVIDUAL
   rahul: { displayName: "Rahul's Outdoor Kit", type: "INDIVIDUAL", area: "Saravanampatti", pincode: "641035", status: "PENDING", bio: "Weekend trekker sharing my bikes, tents and packs between trips to Velliangiri and Valparai.", pickupAddress: "Keeranatham Road, Saravanampatti (demo address)" },
   farhan: { displayName: "EventKart Coimbatore", type: "BUSINESS", area: "Singanallur", pincode: "641005", status: "VERIFIED", bio: "Sound, light and décor for house functions, college fests and small corporate events.", pickupAddress: "Trichy Road, Singanallur (demo address)" },
   ananya: { displayName: "Ananya's Study Shelf", type: "INDIVIDUAL", area: "Vadavalli", pincode: "641041", status: "NOT_SUBMITTED", bio: "Engineering graduate passing on study gear to the next batch — calculators, kits and lab equipment.", pickupAddress: "Maruthamalai Road, Vadavalli (demo address)" },
+  lakshmi: { displayName: "Peelamedu Campus Rentals", type: "BUSINESS", area: "Peelamedu", pincode: "641004", status: "VERIFIED", bio: "Furniture and room essentials for hostel students and short-stay renters near the Avinashi Road colleges. Weekly and semester rentals.", pickupAddress: "Nava India Road, Peelamedu (demo address)" },
   vikram: { displayName: "Vikram Travels Gear", type: "INDIVIDUAL", area: "Peelamedu", pincode: "641004", status: "REJECTED", reviewNote: "Profile details did not match the phone number provided. Please update and resubmit.", bio: "Luggage and travel accessories.", pickupAddress: "Avinashi Road, Peelamedu (demo address)" },
 };
 
@@ -86,7 +88,7 @@ export const listings: L[] = [
   { key: "mountain-bike", seller: "rahul", category: "sports-outdoors", title: "Hardtail Mountain Bike (21-speed, M frame)", brand: "Btwin", condition: "GOOD", rent: 350, deposit: 4000, sale: 15000, description: "Front-suspension MTB with disc brakes, serviced last month. Fits riders 5'6\"–6'0\". Helmet and lock included for rentals." },
   { key: "camping-tent", seller: "rahul", category: "sports-outdoors", title: "4-Person Dome Camping Tent", brand: "Quechua", model: "Arpenaz 4.1", condition: "GOOD", rent: 300, deposit: 2500, stock: 2, description: "Waterproof dome tent with separate bedroom and porch. Pitches in 10 minutes. Pegs, poles and storage bag included." },
   { key: "trekking-backpack", seller: "rahul", category: "sports-outdoors", title: "50 L Trekking Backpack with Rain Cover", brand: "HiMountain", model: "Hiker 50", condition: "LIKE_NEW", rent: 150, deposit: 1500, sale: 3200, description: "Ventilated back panel, hip-belt pockets and integrated rain cover. Ideal for 2–4 day treks." },
-  { key: "dumbbells", seller: "divya", category: "sports-outdoors", title: "Dumbbell Set (2–8 kg, 5 pairs) with Rack", condition: "GOOD", rent: 120, deposit: 1500, sale: 4500, description: "Vinyl-coated dumbbells in five weights with a compact A-frame rack. Rent for a month before committing to a home gym." },
+  { key: "dumbbells", seller: "lakshmi", category: "sports-outdoors", title: "Dumbbell Set (2–8 kg, 5 pairs) with Rack", condition: "GOOD", rent: 120, deposit: 1500, sale: 4500, description: "Vinyl-coated dumbbells in five weights with a compact A-frame rack. Rent for a month before committing to a home gym." },
 
   // Tools & DIY — Coimbatore Tool Library
   { key: "cordless-drill", seller: "senthil", category: "tools-diy", title: "Bosch Cordless Drill Driver (12V)", brand: "Bosch", model: "PSR 1200", condition: "GOOD", rent: 180, deposit: 1500, stock: 3, description: "Lightweight drill driver with two batteries, charger and a 20-piece bit set. Perfect for curtain rods, shelves and furniture assembly." },
@@ -104,11 +106,11 @@ export const listings: L[] = [
   // Home Appliances — Divya
   { key: "vacuum", seller: "divya", category: "home-appliances", title: "Dyson Cordless Vacuum Cleaner with Attachments", brand: "Dyson", model: "V8", condition: "GOOD", rent: 400, deposit: 5000, sale: 16000, description: "Cordless stick vacuum with crevice, brush and mini-motorised tools. Perfect for move-in/move-out deep cleans." },
   { key: "sewing-machine", seller: "divya", category: "home-appliances", title: "Singer Electric Sewing Machine", brand: "Singer", condition: "GOOD", rent: 250, deposit: 2500, sale: 7000, description: "Easy-to-use machine with 20 stitch patterns, foot pedal and accessory kit. Great for alterations and festival tailoring." },
-  { key: "microwave", seller: "divya", category: "home-appliances", title: "Stainless Steel Microwave Oven (25 L)", condition: "GOOD", rent: 150, deposit: 2000, sale: 5500, description: "Solo microwave with grill function. Ideal for PG rooms and short-stay apartments." },
+  { key: "microwave", seller: "lakshmi", category: "home-appliances", title: "Stainless Steel Microwave Oven (25 L)", condition: "GOOD", rent: 150, deposit: 2000, sale: 5500, description: "Solo microwave with grill function. Ideal for PG rooms and short-stay apartments." },
 
   // Furniture
-  { key: "study-desk", seller: "divya", category: "furniture", title: "Engineered Wood Computer Desk", condition: "GOOD", rent: 120, deposit: 1500, sale: 4500, minDays: 7, description: "120 × 60 cm desk with keyboard tray and CPU shelf. Minimum 7-day rental — popular with students during semester." },
-  { key: "armchair", seller: "divya", category: "furniture", title: "XL Bean Bag Lounger (Red)", condition: "LIKE_NEW", rent: 90, deposit: 1000, sale: 3500, minDays: 7, description: "Oversized bean bag with removable, washable cover. Refilled with fresh beads. Minimum 7-day rental." },
+  { key: "study-desk", seller: "lakshmi", category: "furniture", title: "Engineered Wood Computer Desk", condition: "GOOD", rent: 120, deposit: 1500, sale: 4500, minDays: 7, description: "120 × 60 cm desk with keyboard tray and CPU shelf. Minimum 7-day rental — popular with students during semester." },
+  { key: "armchair", seller: "lakshmi", category: "furniture", title: "XL Bean Bag Lounger (Red)", condition: "LIKE_NEW", rent: 90, deposit: 1000, sale: 3500, minDays: 7, description: "Oversized bean bag with removable, washable cover. Refilled with fresh beads. Minimum 7-day rental." },
 
   // Travel & Luggage
   { key: "suitcase", seller: "divya", category: "travel-luggage", title: "Hard-Shell Trolley Suitcase Set (2 pcs)", condition: "LIKE_NEW", rent: 200, deposit: 2500, sale: 6500, description: "Cabin + medium spinner suitcases with TSA locks and 360° wheels." },

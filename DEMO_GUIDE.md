@@ -10,7 +10,7 @@ All data is demonstration data and every payment is simulated. Dates in the seed
 | Seller | `seller@borrowly.demo` (Karthik Raman, "Raman Gear Hub", RS Puram, verified) |
 | Admin | `admin@borrowly.demo` (Meera Iyer, operations) |
 
-Other seeded sellers: Divya's Home Studio (verified), Coimbatore Tool Library (verified), EventKart Coimbatore (verified), Rahul's Outdoor Kit (**pending** verification), Ananya's Study Shelf (not submitted) and Vikram Travels Gear (**rejected**). Their emails are listed in `src/modules/demo/catalogue.ts`.
+Other seeded sellers: Divya's Home Studio (verified), Coimbatore Tool Library (verified), EventKart Coimbatore (verified), Peelamedu Campus Rentals (verified), Rahul's Outdoor Kit (**pending** verification), Ananya's Study Shelf (not submitted) and Vikram Travels Gear (**rejected**). Their emails are listed in `src/modules/demo/catalogue.ts`.
 
 With `DEMO_MODE=true`, use **/demo** for one-click sign-in. To restore everything, run `npm run db:seed`, or as admin use **Settings → Reset demo data**.
 
