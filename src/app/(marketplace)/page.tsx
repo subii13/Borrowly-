@@ -10,6 +10,8 @@ import { ListingGrid } from "@/components/marketplace/listing-card";
 import { SafeImage } from "@/components/ui/safe-image";
 import { ButtonLink } from "@/components/ui/button";
 import { HeroVoice } from "@/components/three/hero-voice";
+import { Reveal } from "@/components/ui/reveal";
+import { Tilt } from "@/components/ui/tilt";
 
 export const dynamic = "force-dynamic";
 
@@ -86,16 +88,20 @@ export default async function HomePage() {
           <Link href="/explore" className="hidden items-center gap-1 text-sm font-medium text-forest hover:underline sm:inline-flex">All listings <ArrowRight className="size-4" /></Link>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
-          {categories.map((c) => (
-            <Link key={c.id} href={`/categories/${c.slug}`} className="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-2xl border border-line sm:aspect-[16/10]">
-              <SafeImage src={c.imageUrl} alt="" fill sizes="(min-width: 768px) 33vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent" />
-              <div className="relative p-3.5 text-white sm:p-5">
-                <h3 className="font-display text-base font-bold text-white sm:text-xl">{c.name}</h3>
-                <p className="mt-1 hidden text-sm text-white/80 sm:line-clamp-1">{c.description}</p>
-                <p className="mt-1 text-xs font-medium text-white/90 sm:mt-2">{c._count.listings} {c._count.listings === 1 ? "listing" : "listings"}</p>
-              </div>
-            </Link>
+          {categories.map((c, i) => (
+            <Reveal key={c.id} delay={(i % 3) * 80}>
+              <Tilt className="rounded-2xl">
+                <Link href={`/categories/${c.slug}`} className="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-2xl border border-line shadow-[var(--shadow-card)] transition-shadow duration-300 hover:shadow-[var(--shadow-lift)] sm:aspect-[16/10]">
+                  <SafeImage src={c.imageUrl} alt="" fill sizes="(min-width: 768px) 33vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent" />
+                  <div className="relative p-3.5 text-white sm:p-5">
+                    <h3 className="font-display text-base font-bold text-white sm:text-xl">{c.name}</h3>
+                    <p className="mt-1 hidden text-sm text-white/80 sm:line-clamp-1">{c.description}</p>
+                    <p className="mt-1 text-xs font-medium text-white/90 sm:mt-2">{c._count.listings} {c._count.listings === 1 ? "listing" : "listings"}</p>
+                  </div>
+                </Link>
+              </Tilt>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -126,12 +132,12 @@ export default async function HomePage() {
               { icon: ShieldCheck, title: "Secure Transaction Workflow", body: "Prices are calculated on our servers and bookings lock inventory, so no double-bookings or surprise totals." },
               { icon: FileCheck2, title: "Documented Handover", body: "Both parties confirm pickup and return with timestamped notes and photos that can't be edited afterwards." },
               { icon: MapPin, title: "Local Marketplace", body: "Pick up from neighbours in Peelamedu, RS Puram, Gandhipuram and more — no shipping, no waiting." },
-            ].map(({ icon: Icon, title, body }) => (
-              <div key={title}>
-                <div className="grid size-11 place-items-center rounded-xl bg-forest-50 text-forest"><Icon className="size-5" aria-hidden /></div>
+            ].map(({ icon: Icon, title, body }, i) => (
+              <Reveal key={title} delay={i * 90}>
+                <div className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-[#5fb48a] to-forest text-white shadow-[0_10px_24px_-10px_rgba(36,92,70,0.7),inset_0_1px_0_rgba(255,255,255,0.35)]"><Icon className="size-5" aria-hidden /></div>
                 <h3 className="mt-4 text-base font-semibold">{title}</h3>
                 <p className="mt-1.5 text-sm text-ink-soft">{body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -147,23 +153,29 @@ export default async function HomePage() {
             { icon: CalendarCheck, title: "Rent or buy", body: "Pick dates to rent, or buy pre-owned outright. See the full price, deposit and fees before you pay." },
             { icon: HandCoins, title: "Pick up and enjoy", body: "Meet the seller, confirm the handover in the app, and return it on time to get your deposit back." },
           ].map(({ icon: Icon, title, body }, i) => (
-            <li key={title} className="card p-6">
-              <div className="flex items-center justify-between">
-                <span className="font-display text-sm font-bold text-ink-faint">0{i + 1}</span>
-                <Icon className="size-5 text-forest" aria-hidden />
-              </div>
-              <h3 className="mt-6 text-lg font-semibold">{title}</h3>
-              <p className="mt-2 text-sm text-ink-soft">{body}</p>
-            </li>
+            <Reveal as="li" key={title} delay={i * 110}>
+              <Tilt className="h-full rounded-[var(--radius-card)]">
+                <div className="card relative h-full overflow-hidden p-6">
+                  <span className="pointer-events-none absolute -right-3 -top-6 font-display text-[110px] font-extrabold leading-none text-forest/[0.06]" aria-hidden>{i + 1}</span>
+                  <div className="flex items-center justify-between">
+                    <span className="font-display text-sm font-bold text-forest">Step 0{i + 1}</span>
+                    <span className="grid size-10 place-items-center rounded-xl bg-forest-50 text-forest"><Icon className="size-5" aria-hidden /></span>
+                  </div>
+                  <h3 className="mt-6 text-lg font-semibold">{title}</h3>
+                  <p className="mt-2 text-sm text-ink-soft">{body}</p>
+                </div>
+              </Tilt>
+            </Reveal>
           ))}
         </ol>
         <Link href="/how-it-works" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-forest hover:underline">Read the full guide <ArrowRight className="size-4" /></Link>
       </section>
 
       {/* Coimbatore */}
-      <section className="container-page" aria-labelledby="cbe-heading">
-        <div className="grid overflow-hidden rounded-3xl bg-forest text-white lg:grid-cols-2">
-          <div className="p-8 sm:p-12">
+      <Reveal as="section" className="container-page" aria-labelledby="cbe-heading">
+        <div className="relative grid overflow-hidden rounded-3xl bg-forest text-white shadow-[0_40px_80px_-40px_rgba(27,70,54,0.8)] lg:grid-cols-2">
+          <div className="pointer-events-none absolute -left-24 -top-24 size-80 rounded-full bg-[radial-gradient(circle,rgba(159,227,191,0.35),transparent_70%)]" aria-hidden />
+          <div className="relative p-8 sm:p-12">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-forest-100">Made for Coimbatore</p>
             <h2 id="cbe-heading" className="mt-3 text-3xl font-bold text-white sm:text-4xl">Your neighbourhood already owns it</h2>
             <p className="mt-4 max-w-md text-white/80">From wedding season in RS Puram to college fests in Peelamedu and treks out of Saravanampatti — rent from people a few kilometres away.</p>
@@ -182,11 +194,11 @@ export default async function HomePage() {
             })}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Seller CTA */}
-      <section className="container-page pt-16">
-        <div className="card flex flex-col items-start gap-8 p-8 sm:p-12 lg:flex-row lg:items-center lg:justify-between">
+      <Reveal as="section" className="container-page pt-16">
+        <div className="card relative flex flex-col overflow-hidden items-start gap-8 p-8 sm:p-12 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xl">
             <div className="flex gap-2 text-forest"><Camera className="size-5" /><Store className="size-5" /></div>
             <h2 className="mt-4 text-3xl font-bold">Have something sitting unused?</h2>
@@ -196,8 +208,9 @@ export default async function HomePage() {
             <ButtonLink href="/seller/listings/new" size="lg">List an item</ButtonLink>
             <ButtonLink href="/sell" variant="secondary" size="lg">How selling works</ButtonLink>
           </div>
+          <div className="pointer-events-none absolute -bottom-24 -right-16 size-72 rounded-full bg-[radial-gradient(circle,rgba(127,207,159,0.3),transparent_70%)]" aria-hidden />
         </div>
-      </section>
+      </Reveal>
     </>
   );
 }
