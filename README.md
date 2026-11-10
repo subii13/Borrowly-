@@ -6,6 +6,8 @@ People rent items by the day or buy them second-hand from verified individuals a
 
 **Live demo:** https://borrowly-sigma.vercel.app (open `/demo` for one-click sign-in)
 
+**Solution pitch (Gnani AI challenge):** [PITCH.md](PITCH.md): a one-page overview of the voice features built on Gnani Prisma and Timbre.
+
 > This is a **functional demonstration build**. Listings, people and transactions are seeded sample data, and every payment goes through a simulated provider. No real money moves.
 
 ![Homepage](docs/screenshots/home.png)
