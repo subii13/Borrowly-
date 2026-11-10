@@ -87,6 +87,13 @@ describe("real Gnani Prisma v3.0 transcripts (captured 6 Nov 2026)", () => {
   });
 });
 
+describe("real transcript from the demo recording (10 Nov 2026)", () => {
+  it("reads நாளைக்கு + price as per day and links a deposit across a comma", () => {
+    const d = parseListingDraft("Bosch drill நல்ல condition. நாளைக்கு நூற்றி எண்பது rupees deposit, ஆயிரத்தி ஐந்நூறு.");
+    expect(d).toMatchObject({ dailyRate: 180, deposit: 1500, rentalEnabled: true, title: "Bosch Drill" });
+  });
+});
+
 describe("spoken replies", () => {
   it("writes Tamil numbers as words", () => {
     expect(tamilNumber(3)).toBe("மூன்று");

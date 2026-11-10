@@ -261,16 +261,20 @@ export function parseListingDraft(transcript: string): ListingDraft {
   let deposit: number | undefined;
   let salePrice: number | undefined;
   type Kind = "deposit" | "day" | "sell";
+  // In a seller's description "நாளைக்கு 180" means "180 per day", not "tomorrow".
+  const perDay = (w: string) => isDayWord(w) || tokenIs(w, CUES.rent) || w.startsWith(fold("நாளைக்")) || /^n+a+l+a+i+k/.test(w);
   const kindOf = (w: string): Kind | null =>
-    tokenIs(w, CUES.deposit) ? "deposit" : isDayWord(w) || tokenIs(w, CUES.rent) ? "day" : tokenIs(w, CUES.sell) || tokenIs(w, CUES.buy) || w === "price" || w.startsWith(fold("விலை")) ? "sell" : null;
+    tokenIs(w, CUES.deposit) ? "deposit" : perDay(w) ? "day" : tokenIs(w, CUES.sell) || tokenIs(w, CUES.buy) || w === "price" || w.startsWith(fold("விலை")) ? "sell" : null;
   tokens.forEach((t, i) => {
     if (t.num === undefined || t.num < 10) return;
-    // Nearest cue within the same clause wins; on a tie the cue before the number wins.
+    // Nearest cue wins (commas count as distance, since Prisma often writes "deposit, 1500");
+    // on a tie the cue before the number wins. Another number in between stops the search.
     let best: { kind: Kind; dist: number } | null = null;
     for (const dir of [-1, 1]) {
       for (let d = 1; d <= 4; d++) {
         const w = tokens[i + dir * d]?.text;
-        if (!w || w === "," || tokens[i + dir * d].num !== undefined) break;
+        if (!w || tokens[i + dir * d].num !== undefined) break;
+        if (w === ",") continue;
         const kind = kindOf(w);
         if (kind) {
           if (!best || d < best.dist) best = { kind, dist: d };
