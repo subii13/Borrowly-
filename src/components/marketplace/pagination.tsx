@@ -15,7 +15,7 @@ export function Pagination({ page, pages, params, basePath }: { page: number; pa
     <nav className="mt-10 flex items-center justify-center gap-1.5" aria-label="Pagination">
       {page > 1 && <Link href={href(page - 1)} className={`${cls} border-line bg-white`} aria-label="Previous page"><ChevronLeft className="size-4" /></Link>}
       {Array.from({ length: pages }, (_, i) => i + 1).map((p) => (
-        <Link key={p} href={href(p)} aria-current={p === page ? "page" : undefined} className={`${cls} ${p === page ? "border-forest bg-forest text-white" : "border-line bg-white text-ink hover:border-line-strong"}`}>{p}</Link>
+        <Link key={p} href={href(p)} aria-current={p === page ? "page" : undefined} className={`${cls} ${p === page ? "border-brand bg-brand text-white" : "border-line bg-white text-ink hover:border-line-strong"}`}>{p}</Link>
       ))}
       {page < pages && <Link href={href(page + 1)} className={`${cls} border-line bg-white`} aria-label="Next page"><ChevronRight className="size-4" /></Link>}
     </nav>

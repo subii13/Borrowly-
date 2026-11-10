@@ -91,7 +91,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
         {STEPS.map((s, i) => (
           <li key={s.title}>
             <button type="button" onClick={() => (i < step ? setStep(i) : undefined)} className={clsx("flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm whitespace-nowrap", i === step ? "bg-white font-semibold shadow-[var(--shadow-card)]" : "text-ink-soft")}>
-              <span className={clsx("grid size-6 shrink-0 place-items-center rounded-full text-xs", i < step ? "bg-forest text-white" : i === step ? "border-2 border-forest text-forest" : "border border-line-strong")}>{i < step ? <Check className="size-3.5" /> : i + 1}</span>
+              <span className={clsx("grid size-6 shrink-0 place-items-center rounded-full text-xs", i < step ? "bg-brand text-white" : i === step ? "border-2 border-brand text-brand" : "border border-line-strong")}>{i < step ? <Check className="size-3.5" /> : i + 1}</span>
               {s.title}
             </button>
           </li>
@@ -139,7 +139,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
                 <p className="label">Condition</p>
                 <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                   {CONDITIONS.map((c) => (
-                    <label key={c} className={clsx("cursor-pointer rounded-lg border px-3 py-3 text-center text-sm", v.condition === c ? "border-forest bg-forest-50 font-semibold text-forest" : "border-line bg-white")}>
+                    <label key={c} className={clsx("cursor-pointer rounded-lg border px-3 py-3 text-center text-sm", v.condition === c ? "border-brand bg-brand-50 font-semibold text-brand" : "border-line bg-white")}>
                       <input type="radio" value={c} className="sr-only" {...register("condition")} />
                       {CONDITION_LABEL[c]}
                     </label>
@@ -156,7 +156,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
                   <div key={img.id ?? img.storageKey ?? img.url} className="relative aspect-[4/3] overflow-hidden rounded-lg border border-line bg-canvas">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={img.url} alt={`Photo ${i + 1}`} className="size-full object-cover" />
-                    {i === 0 && <span className="absolute left-1.5 top-1.5 rounded bg-forest px-1.5 py-0.5 text-[10px] font-semibold text-white">Cover</span>}
+                    {i === 0 && <span className="absolute left-1.5 top-1.5 rounded bg-brand px-1.5 py-0.5 text-[10px] font-semibold text-white">Cover</span>}
                     <div className="absolute right-1.5 top-1.5 flex gap-1">
                       {i > 0 && <button type="button" onClick={() => move(i, -1)} className="grid size-6 place-items-center rounded-full bg-white/90" aria-label="Move earlier"><ArrowUp className="size-3.5" /></button>}
                       {i < images.length - 1 && <button type="button" onClick={() => move(i, 1)} className="grid size-6 place-items-center rounded-full bg-white/90" aria-label="Move later"><ArrowDown className="size-3.5" /></button>}
@@ -165,7 +165,7 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
                   </div>
                 ))}
                 {images.length < 8 && (
-                  <button type="button" onClick={() => fileInput.current?.click()} disabled={uploading} className="grid aspect-[4/3] place-items-center rounded-lg border-2 border-dashed border-line-strong bg-white text-sm text-ink-soft hover:border-forest hover:text-forest">
+                  <button type="button" onClick={() => fileInput.current?.click()} disabled={uploading} className="grid aspect-[4/3] place-items-center rounded-lg border-2 border-dashed border-line-strong bg-white text-sm text-ink-soft hover:border-brand hover:text-brand">
                     <span className="flex flex-col items-center gap-1">{uploading ? <Loader2 className="size-5 animate-spin" /> : <ImagePlus className="size-5" />}{uploading ? "Uploading…" : "Add photos"}</span>
                   </button>
                 )}
@@ -177,12 +177,12 @@ export function ListingWizard({ categories, initial, submit, mode }: { categorie
           {step === 3 && (
             <>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <label className={clsx("flex cursor-pointer items-start gap-3 rounded-xl border p-4", v.rentalEnabled ? "border-forest bg-forest-50" : "border-line bg-white")}>
-                  <input type="checkbox" className="mt-1 accent-forest" {...register("rentalEnabled")} />
+                <label className={clsx("flex cursor-pointer items-start gap-3 rounded-xl border p-4", v.rentalEnabled ? "border-brand bg-brand-50" : "border-line bg-white")}>
+                  <input type="checkbox" className="mt-1 accent-brand" {...register("rentalEnabled")} />
                   <span><span className="block font-semibold">Available to rent</span><span className="text-sm text-ink-soft">Charge per day plus a refundable deposit</span></span>
                 </label>
-                <label className={clsx("flex cursor-pointer items-start gap-3 rounded-xl border p-4", v.purchaseEnabled ? "border-forest bg-forest-50" : "border-line bg-white")}>
-                  <input type="checkbox" className="mt-1 accent-forest" {...register("purchaseEnabled")} />
+                <label className={clsx("flex cursor-pointer items-start gap-3 rounded-xl border p-4", v.purchaseEnabled ? "border-brand bg-brand-50" : "border-line bg-white")}>
+                  <input type="checkbox" className="mt-1 accent-brand" {...register("purchaseEnabled")} />
                   <span><span className="block font-semibold">Available to buy</span><span className="text-sm text-ink-soft">Sell it pre-owned for a fixed price</span></span>
                 </label>
               </div>

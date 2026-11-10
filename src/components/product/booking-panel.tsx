@@ -133,7 +133,7 @@ export function BookingPanel({ listing, signedIn, isOwner, serviceFeeBps, initia
       {canRent && canBuy && (
         <div className="grid grid-cols-2 border-b border-line p-1.5" role="tablist" aria-label="Rent or buy">
           {(["rent", "buy"] as const).map((m) => (
-            <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)} className={clsx("rounded-lg py-2.5 text-sm font-semibold", mode === m ? "bg-forest text-white" : "text-ink-soft hover:bg-canvas")}>
+            <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)} className={clsx("rounded-lg py-2.5 text-sm font-semibold", mode === m ? "bg-brand text-white" : "text-ink-soft hover:bg-canvas")}>
               {m === "rent" ? `Rent · ${formatINR(listing.dailyRatePaise)}/day` : `Buy · ${formatINR(listing.salePricePaise)}`}
             </button>
           ))}
@@ -175,8 +175,8 @@ export function BookingPanel({ listing, signedIn, isOwner, serviceFeeBps, initia
                     aria-pressed={!!isEdge}
                     className={clsx(
                       "mx-auto grid size-9 place-items-center rounded-lg text-sm tabular-nums",
-                      isEdge && "bg-forest font-semibold text-white",
-                      inRange && "bg-forest-50 text-forest",
+                      isEdge && "bg-brand font-semibold text-white",
+                      inRange && "bg-brand-50 text-brand",
                       !isEdge && !inRange && selectable && "hover:bg-canvas",
                       known && !free && !isEdge && "text-ink-faint line-through decoration-rose/60",
                       !known && "text-line-strong",
@@ -205,7 +205,7 @@ export function BookingPanel({ listing, signedIn, isOwner, serviceFeeBps, initia
           )}
 
           {isOwner ? (
-            <p className="mt-5 rounded-lg bg-canvas px-3 py-2.5 text-sm text-ink-soft">This is your listing. <a href="/seller/listings" className="font-medium text-forest">Manage it</a></p>
+            <p className="mt-5 rounded-lg bg-canvas px-3 py-2.5 text-sm text-ink-soft">This is your listing. <a href="/seller/listings" className="font-medium text-brand">Manage it</a></p>
           ) : (
             <Button className="mt-5 w-full" size="lg" disabled={!quote?.isAvailable || pending} onClick={reserve}>
               {pending && <Loader2 className="size-4 animate-spin" />}

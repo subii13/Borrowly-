@@ -29,8 +29,8 @@ function Timeline({ steps }: { steps: { label: string; at?: Date | null; state: 
     <ol className="space-y-0">
       {steps.map((s, i) => (
         <li key={s.label} className="relative flex gap-3 pb-5 last:pb-0">
-          {i < steps.length - 1 && <span className={clsx("absolute left-[11px] top-6 h-[calc(100%-18px)] w-px", s.state === "done" ? "bg-forest" : "bg-line")} />}
-          <span className={clsx("relative grid size-6 shrink-0 place-items-center rounded-full", s.state === "done" && "bg-forest text-white", s.state === "current" && "border-2 border-forest bg-white text-forest", s.state === "todo" && "border border-line-strong bg-white", s.state === "stopped" && "bg-rose text-white")}>
+          {i < steps.length - 1 && <span className={clsx("absolute left-[11px] top-6 h-[calc(100%-18px)] w-px", s.state === "done" ? "bg-brand" : "bg-line")} />}
+          <span className={clsx("relative grid size-6 shrink-0 place-items-center rounded-full", s.state === "done" && "bg-brand text-white", s.state === "current" && "border-2 border-brand bg-white text-brand", s.state === "todo" && "border border-line-strong bg-white", s.state === "stopped" && "bg-rose text-white")}>
             {s.state === "done" ? <Check className="size-3.5" /> : s.state === "current" ? <CircleDot className="size-3" /> : s.state === "stopped" ? <AlertTriangle className="size-3" /> : null}
           </span>
           <div className="-mt-0.5">
@@ -58,7 +58,7 @@ function EvidenceList({ title, handover, actor }: { title: string; handover: { s
       <ul className="mt-4 space-y-3">
         {handover.evidence.map((e) => (
           <li key={e.id} className="flex gap-3 text-sm">
-            {e.kind === "PHOTO" ? <ImageIcon className="mt-0.5 size-4 shrink-0 text-sage" /> : <FileText className="mt-0.5 size-4 shrink-0 text-sage" />}
+            {e.kind === "PHOTO" ? <ImageIcon className="mt-0.5 size-4 shrink-0 text-sand" /> : <FileText className="mt-0.5 size-4 shrink-0 text-sand" />}
             <div className="min-w-0 flex-1">
               <p className="text-xs text-ink-faint">{e.uploadedBy.name} · {formatDateTime(e.createdAt)}{e.correctsId && " · correction"}</p>
               {e.kind === "PHOTO" ? (
@@ -117,7 +117,7 @@ function DisputesCard({ disputes, raiseHref, viewBase }: { disputes: { id: strin
         <ul className="mt-3 space-y-2 text-sm">
           {disputes.map((d) => (
             <li key={d.id} className="flex items-center justify-between gap-2">
-              <Link href={`${viewBase}/${d.id}`} className="font-medium text-forest hover:underline">{d.code}</Link>
+              <Link href={`${viewBase}/${d.id}`} className="font-medium text-brand hover:underline">{d.code}</Link>
               <StatusBadge status={d.status} label={DISPUTE_STATUS_LABEL[d.status]} />
             </li>
           ))}

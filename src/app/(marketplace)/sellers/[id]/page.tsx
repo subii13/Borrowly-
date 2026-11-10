@@ -36,7 +36,7 @@ export default async function SellerProfilePage({ params }: Props) {
         <div className="flex items-center gap-4">
           <Avatar name={seller.displayName} className="size-16 text-xl" />
           <div>
-            <h1 className="flex items-center gap-2 text-2xl font-bold">{seller.displayName}{verified && <BadgeCheck className="size-5 text-forest" aria-label="Verified seller" />}</h1>
+            <h1 className="flex items-center gap-2 text-2xl font-bold">{seller.displayName}{verified && <BadgeCheck className="size-5 text-brand" aria-label="Verified seller" />}</h1>
             <p className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-soft">
               <span className="inline-flex items-center gap-1"><Store className="size-4" />{seller.sellerType === "BUSINESS" ? "Small business" : "Individual seller"}</span>
               <span className="inline-flex items-center gap-1"><MapPin className="size-4" />{seller.area}, Coimbatore</span>

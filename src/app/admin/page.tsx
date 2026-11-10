@@ -18,9 +18,9 @@ export default async function AdminOverview() {
       <PageHeader eyebrow="Admin console" title="Platform overview" description="Live figures from the Borrowly database." />
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Stat label="Users" value={o.users} hint={`${o.sellers} with seller profiles`} icon={Users} />
-        <Stat label="Pending verification" value={<Link href="/admin/verification" className="hover:text-forest">{o.pendingSellers}</Link>} icon={BadgeCheck} />
+        <Stat label="Pending verification" value={<Link href="/admin/verification" className="hover:text-brand">{o.pendingSellers}</Link>} icon={BadgeCheck} />
         <Stat label="Active listings" value={o.activeListings} icon={Layers} />
-        <Stat label="Open disputes" value={<Link href="/admin/disputes" className="hover:text-forest">{o.openDisputes}</Link>} hint={`${o.pendingRefunds.count} refunds pending (${formatINR(o.pendingRefunds.amount)})`} icon={Gavel} />
+        <Stat label="Open disputes" value={<Link href="/admin/disputes" className="hover:text-brand">{o.openDisputes}</Link>} hint={`${o.pendingRefunds.count} refunds pending (${formatINR(o.pendingRefunds.amount)})`} icon={Gavel} />
       </div>
       <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <Stat label="Gross transaction value (completed)" value={formatINR(o.gmv)} icon={ReceiptText} />
@@ -37,7 +37,7 @@ export default async function AdminOverview() {
           <ul className="mt-3 space-y-1.5 text-sm">{o.orders.map((b) => <li key={b.status} className="flex justify-between"><span className="text-ink-soft">{PURCHASE_STATUS_LABEL[b.status]}</span><span className="font-medium tabular-nums">{b._count}</span></li>)}</ul>
         </div>
         <div className="card p-5">
-          <div className="flex items-center justify-between"><h3 className="font-semibold">Recent activity</h3><Link href="/admin/audit-logs" className="text-xs text-forest hover:underline">All</Link></div>
+          <div className="flex items-center justify-between"><h3 className="font-semibold">Recent activity</h3><Link href="/admin/audit-logs" className="text-xs text-brand hover:underline">All</Link></div>
           <ul className="mt-3 space-y-2 text-sm">{logs.map((l) => <li key={l.id}><span className="font-medium">{l.action}</span><span className="block text-xs text-ink-faint">{l.actor?.name ?? "System"} · {formatDateTime(l.createdAt)}</span></li>)}</ul>
         </div>
       </div>

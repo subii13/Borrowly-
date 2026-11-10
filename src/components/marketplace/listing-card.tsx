@@ -24,7 +24,7 @@ export function ListingCard({ listing, priority, linkSuffix = "" }: { listing: L
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
           <div className="absolute left-3 top-3 flex gap-1.5">
-            {listing.rentalEnabled && <span className="rounded-md bg-white/95 px-2 py-0.5 text-xs font-semibold text-forest shadow-sm">Rent</span>}
+            {listing.rentalEnabled && <span className="rounded-md bg-white/95 px-2 py-0.5 text-xs font-semibold text-brand shadow-sm">Rent</span>}
             {listing.purchaseEnabled && <span className="rounded-md bg-ink/85 px-2 py-0.5 text-xs font-semibold text-white shadow-sm">Buy</span>}
           </div>
           {soldOut && <span className="absolute right-3 top-3 rounded-md bg-white/95 px-2 py-0.5 text-xs font-semibold text-rose">Sold out</span>}
@@ -34,10 +34,10 @@ export function ListingCard({ listing, priority, linkSuffix = "" }: { listing: L
             <span className="truncate">{listing.category.name}</span>
             <Rating sum={listing.ratingSum} count={listing.ratingCount} />
           </div>
-          <h3 className="mt-1.5 line-clamp-2 font-display text-[15px] font-semibold leading-snug text-ink group-hover:text-forest">{listing.title}</h3>
+          <h3 className="mt-1.5 line-clamp-2 font-display text-[15px] font-semibold leading-snug text-ink group-hover:text-brand">{listing.title}</h3>
           <p className="mt-1.5 flex items-center gap-1 text-xs text-ink-soft">
             <span className="truncate">{listing.seller.displayName}</span>
-            {listing.seller.verificationStatus === "VERIFIED" && <BadgeCheck className="size-3.5 shrink-0 text-forest" aria-label="Verified seller" />}
+            {listing.seller.verificationStatus === "VERIFIED" && <BadgeCheck className="size-3.5 shrink-0 text-brand" aria-label="Verified seller" />}
           </p>
           <div className="mt-1 flex items-center gap-3 text-xs text-ink-faint">
             <span className="inline-flex items-center gap-1"><MapPin className="size-3" aria-hidden />{listing.area}</span>
@@ -52,7 +52,7 @@ export function ListingCard({ listing, priority, linkSuffix = "" }: { listing: L
             {listing.rentalEnabled && listing.purchaseEnabled && <p className="text-xs text-ink-soft">or buy {formatINR(listing.salePricePaise)}</p>}
           </div>
           <p className="mt-1 text-xs">
-            {soldOut ? <span className="text-rose">Not available</span> : <span className="text-forest">{listing.stockQuantity > 1 ? `${listing.stockQuantity} units available` : "Available"}</span>}
+            {soldOut ? <span className="text-rose">Not available</span> : <span className="text-brand">{listing.stockQuantity > 1 ? `${listing.stockQuantity} units available` : "Available"}</span>}
           </p>
         </div>
       </Link>

@@ -104,8 +104,8 @@ export function HeroVoice({ listings }: { listings: FloatingListing[] }) {
     <div ref={box} onPointerMove={onPointerMove} onPointerLeave={() => setTilt({ x: 0, y: 0 })} className="relative mx-auto aspect-square w-full max-w-[540px] select-none">
       {/* Soft ground glow and rings give the orb a sense of depth. */}
       <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(127,207,159,0.35)_0%,rgba(127,207,159,0)_70%)] blur-2xl" aria-hidden />
-      <div className="absolute inset-[4%] rounded-full border border-forest/10" aria-hidden />
-      <div className="absolute inset-[14%] rounded-full border border-dashed border-forest/15 [animation:spin_60s_linear_infinite]" aria-hidden />
+      <div className="absolute inset-[4%] rounded-full border border-brand/10" aria-hidden />
+      <div className="absolute inset-[14%] rounded-full border border-dashed border-brand/15 [animation:spin_60s_linear_infinite]" aria-hidden />
 
       <div className="absolute inset-0" style={{ transform: `translate3d(${tilt.x * -14}px, ${tilt.y * -14}px, 0)`, transition: "transform 300ms ease-out" }}>
         {can3D ? <OrbScene active={visible} lite={lite} /> : <CssOrb mode={mode} />}
@@ -118,7 +118,7 @@ export function HeroVoice({ listings }: { listings: FloatingListing[] }) {
         aria-label={recording ? "Stop recording" : "Search by voice"}
         aria-pressed={recording}
         data-testid="orb-mic"
-        className="absolute left-1/2 top-1/2 grid size-[46%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full outline-offset-8 focus-visible:outline-2 focus-visible:outline-forest"
+        className="absolute left-1/2 top-1/2 grid size-[46%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full outline-offset-8 focus-visible:outline-2 focus-visible:outline-brand"
       >
         <span
           className={clsx(
@@ -147,7 +147,7 @@ export function HeroVoice({ listings }: { listings: FloatingListing[] }) {
           <span className="min-w-0">
             <span className="block truncate text-xs font-semibold text-ink">{l.title}</span>
             <span className="mt-0.5 flex items-center gap-1 text-[11px] text-ink-soft"><MapPin className="size-3" />{l.area}</span>
-            <span className="block text-xs font-semibold text-forest">{l.price}</span>
+            <span className="block text-xs font-semibold text-brand">{l.price}</span>
           </span>
         </Link>
       ))}

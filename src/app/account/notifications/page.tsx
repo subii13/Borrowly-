@@ -20,9 +20,9 @@ export default async function NotificationsPage() {
       {notes.length ? (
         <ul className="card divide-y divide-line">
           {notes.map((n) => (
-            <li key={n.id} className={n.readAt ? "" : "bg-forest-50/40"}>
+            <li key={n.id} className={n.readAt ? "" : "bg-brand-50/40"}>
               <Link href={n.link ?? "#"} className="flex gap-3 p-4">
-                <span className={`mt-1.5 size-2 shrink-0 rounded-full ${n.readAt ? "bg-transparent" : "bg-forest"}`} />
+                <span className={`mt-1.5 size-2 shrink-0 rounded-full ${n.readAt ? "bg-transparent" : "bg-brand"}`} />
                 <span className="min-w-0">
                   <span className="block text-sm font-semibold">{n.title}</span>
                   <span className="block text-sm text-ink-soft">{n.body}</span>

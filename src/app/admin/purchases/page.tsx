@@ -27,7 +27,7 @@ export default async function AdminPurchases({ searchParams }: { searchParams: P
           <tbody>
             {rows.map((o) => (
               <tr key={o.id}>
-                <td><Link href={`/admin/purchases/${o.id}`} className="font-medium text-forest hover:underline">{o.code}</Link><p className="text-xs text-ink-faint">{o.listing.title}</p></td>
+                <td><Link href={`/admin/purchases/${o.id}`} className="font-medium text-brand hover:underline">{o.code}</Link><p className="text-xs text-ink-faint">{o.listing.title}</p></td>
                 <td className="text-sm">{o.customer.name} → {o.seller.displayName}</td>
                 <td className="whitespace-nowrap text-ink-soft">{formatDay(o.createdAt)}</td>
                 <td className="text-right tabular-nums">{formatINR(o.totalPaise)}</td>

@@ -14,7 +14,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       </div>
       <div className="relative hidden overflow-hidden lg:block">
         <SafeImage src="/images/categories/cameras.webp" alt="" fill priority sizes="50vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/30 to-transparent" />
         <div className="absolute inset-x-10 bottom-10 text-white">
           <p className="font-display text-3xl font-bold leading-tight">Own less.<br />Access more.</p>
           <p className="mt-3 max-w-sm text-white/80">Rent or buy pre-owned from verified neighbours across Coimbatore.</p>

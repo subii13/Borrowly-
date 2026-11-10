@@ -32,7 +32,7 @@ export default async function AdminBookings({ searchParams }: { searchParams: Pr
           <tbody>
             {rows.map((b) => (
               <tr key={b.id}>
-                <td><Link href={`/admin/bookings/${b.id}`} className="font-medium text-forest hover:underline">{b.code}</Link><p className="text-xs text-ink-faint">{b.listing.title}</p></td>
+                <td><Link href={`/admin/bookings/${b.id}`} className="font-medium text-brand hover:underline">{b.code}</Link><p className="text-xs text-ink-faint">{b.listing.title}</p></td>
                 <td className="text-sm">{b.customer.name} → {b.seller.displayName}</td>
                 <td className="whitespace-nowrap text-sm text-ink-soft">{formatRange(b.startDate, b.endDate)}</td>
                 <td className="text-right tabular-nums">{formatINR(b.totalPaise)}</td>

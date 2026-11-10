@@ -10,7 +10,7 @@ export default async function SellerOrderPage({ params }: { params: Promise<{ id
   const { actor } = await requireSellerPage();
   return (
     <>
-      <Link href="/seller/orders" className="mb-4 inline-block text-sm text-ink-soft hover:text-forest">← All orders</Link>
+      <Link href="/seller/orders" className="mb-4 inline-block text-sm text-ink-soft hover:text-brand">← All orders</Link>
       <PurchaseDetail orderId={id} actor={actor} />
     </>
   );

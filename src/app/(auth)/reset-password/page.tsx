@@ -12,7 +12,7 @@ export default async function ResetPasswordPage({ searchParams }: { searchParams
       {token ? (
         <div className="mt-8"><ResetForm token={token} /></div>
       ) : (
-        <p className="mt-4 text-ink-soft">This link is missing its token. <Link href="/forgot-password" className="text-forest underline">Request a new link</Link>.</p>
+        <p className="mt-4 text-ink-soft">This link is missing its token. <Link href="/forgot-password" className="text-brand underline">Request a new link</Link>.</p>
       )}
     </>
   );

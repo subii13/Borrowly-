@@ -43,8 +43,8 @@ export default async function ListingPage({ params, searchParams }: Props) {
   return (
     <div className="container-page py-8">
       <nav className="mb-5 text-sm text-ink-soft" aria-label="Breadcrumb">
-        <Link href="/explore" className="hover:text-forest">Explore</Link> <span className="text-ink-faint">/</span>{" "}
-        <Link href={`/categories/${listing.category.slug}`} className="hover:text-forest">{listing.category.name}</Link>
+        <Link href="/explore" className="hover:text-brand">Explore</Link> <span className="text-ink-faint">/</span>{" "}
+        <Link href={`/categories/${listing.category.slug}`} className="hover:text-brand">{listing.category.name}</Link>
       </nav>
 
       {listing.status !== "ACTIVE" && (
@@ -97,9 +97,9 @@ export default async function ListingPage({ params, searchParams }: Props) {
               <div className="flex items-center gap-3">
                 <Avatar name={listing.seller.displayName} className="size-12 text-base" />
                 <div>
-                  <Link href={`/sellers/${listing.seller.id}`} className="flex items-center gap-1.5 font-semibold hover:text-forest">
+                  <Link href={`/sellers/${listing.seller.id}`} className="flex items-center gap-1.5 font-semibold hover:text-brand">
                     {listing.seller.displayName}
-                    {verified && <BadgeCheck className="size-4 text-forest" aria-label="Verified seller" />}
+                    {verified && <BadgeCheck className="size-4 text-brand" aria-label="Verified seller" />}
                   </Link>
                   <p className="text-sm text-ink-soft">{listing.seller.sellerType === "BUSINESS" ? "Small business" : "Individual"} · {listing.seller.area} · on Borrowly since {formatDay(listing.seller.createdAt)}</p>
                 </div>

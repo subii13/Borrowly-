@@ -19,7 +19,7 @@ export default async function VerifyEmailPage({ searchParams }: { searchParams: 
   }
   return (
     <div className="text-center">
-      {ok ? <CheckCircle2 className="mx-auto size-12 text-forest" /> : <XCircle className="mx-auto size-12 text-rose" />}
+      {ok ? <CheckCircle2 className="mx-auto size-12 text-brand" /> : <XCircle className="mx-auto size-12 text-rose" />}
       <h1 className="mt-4 text-2xl font-bold">{ok ? "Email verified" : "Link invalid or expired"}</h1>
       <p className="mt-2 text-ink-soft">{ok ? "Thanks — your email address is confirmed." : "Request a new verification email from your account page."}</p>
       <ButtonLink href="/account" className="mt-6">Go to my account</ButtonLink>

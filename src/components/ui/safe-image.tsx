@@ -14,7 +14,7 @@ export function SafeImage({ src, alt, ...props }: ImageProps) {
       src={failed ? FALLBACK : src}
       alt={alt}
       onError={() => setFailed(true)}
-      style={{ backgroundColor: "#EEF0EB", ...props.style }}
+      style={{ backgroundColor: "#F1EBE2", ...props.style }}
     />
   );
 }

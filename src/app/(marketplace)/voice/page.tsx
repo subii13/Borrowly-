@@ -30,7 +30,7 @@ export default function VoicePage() {
         {FEATURES.map(({ icon: Icon, title, model, body }) => (
           <div key={title} className="card p-6">
             <div className="flex items-center gap-3">
-              <span className="grid size-10 place-items-center rounded-xl bg-forest-50 text-forest"><Icon className="size-5" /></span>
+              <span className="grid size-10 place-items-center rounded-xl bg-brand-50 text-brand"><Icon className="size-5" /></span>
               <div>
                 <h2 className="text-base font-semibold">{title}</h2>
                 <p className="text-xs text-ink-faint">{model}</p>
@@ -43,7 +43,7 @@ export default function VoicePage() {
       <div className="mt-10 max-w-3xl space-y-3 text-sm text-ink-soft">
         <h2 className="text-lg font-bold text-ink">How it works</h2>
         <p>The browser records a short 16 kHz WAV clip. Borrowly&apos;s server sends it to Gnani Prisma v3.0 with <code>ta-IN,en-IN</code> and code-mix formatting, so English item names stay English inside Tamil sentences. A deterministic parser understands Tamil script and romanised Tanglish — number words like “rendu aayiram”, dates like “naalaiku” and areas like “பீளமேட்டில்”. Spoken replies are composed on the server from live search results and voiced by Gnani Timbre v3.0.</p>
-        <p>The API key never reaches the browser, recordings are not stored, and every transcript is shown back to you before anything is saved. Try it as a seller on <Link href="/seller/listings/new" className="text-forest underline">Create listing</Link>, or on any booking&apos;s handover step.</p>
+        <p>The API key never reaches the browser, recordings are not stored, and every transcript is shown back to you before anything is saved. Try it as a seller on <Link href="/seller/listings/new" className="text-brand underline">Create listing</Link>, or on any booking&apos;s handover step.</p>
       </div>
     </div>
   );

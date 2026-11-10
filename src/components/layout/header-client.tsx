@@ -40,11 +40,11 @@ export function CategoriesMenu({ categories }: { categories: Cat[] }) {
       {open && (
         <div className="card absolute left-0 top-full mt-2 grid w-[460px] grid-cols-2 gap-1 p-2 shadow-[var(--shadow-lift)]">
           {categories.map((c) => (
-            <Link key={c.slug} href={`/categories/${c.slug}`} className="rounded-lg px-3 py-2 text-sm text-ink hover:bg-forest-50 hover:text-forest">
+            <Link key={c.slug} href={`/categories/${c.slug}`} className="rounded-lg px-3 py-2 text-sm text-ink hover:bg-brand-50 hover:text-brand">
               {c.name}
             </Link>
           ))}
-          <Link href="/explore" className="col-span-2 mt-1 rounded-lg border-t border-line px-3 pt-3 pb-2 text-sm font-medium text-forest">Browse everything →</Link>
+          <Link href="/explore" className="col-span-2 mt-1 rounded-lg border-t border-line px-3 pt-3 pb-2 text-sm font-medium text-brand">Browse everything →</Link>
         </div>
       )}
     </div>
@@ -63,15 +63,15 @@ export function LocationSelector({ current }: { current: string | null }) {
   return (
     <div className="relative" ref={ref}>
       <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label="Choose your area" className="inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm text-ink-soft hover:bg-ink/5 hover:text-ink">
-        <MapPin className="size-4 text-forest" aria-hidden />
+        <MapPin className="size-4 text-brand" aria-hidden />
         <span className="hidden max-w-[120px] truncate md:inline">{current ?? "All Coimbatore"}</span>
       </button>
       {open && (
         <div className="card absolute right-0 top-full mt-2 w-56 p-1.5 shadow-[var(--shadow-lift)]">
           <p className="px-3 pt-2 pb-1 text-xs font-semibold uppercase tracking-wide text-ink-faint">Coimbatore</p>
-          <button onClick={() => choose(null)} className={clsx("block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-forest-50", !current && "font-semibold text-forest")}>All areas</button>
+          <button onClick={() => choose(null)} className={clsx("block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-brand-50", !current && "font-semibold text-brand")}>All areas</button>
           {AREAS.map((a) => (
-            <button key={a.name} onClick={() => choose(a.name)} className={clsx("block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-forest-50", current === a.name && "font-semibold text-forest")}>
+            <button key={a.name} onClick={() => choose(a.name)} className={clsx("block w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-brand-50", current === a.name && "font-semibold text-brand")}>
               {a.name}
             </button>
           ))}
@@ -90,7 +90,7 @@ export function UserMenu({ user }: { user: NonNullable<MenuUser> }) {
   return (
     <div className="relative" ref={ref}>
       <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label="Account menu" className="relative flex items-center gap-2 rounded-full p-0.5 hover:bg-ink/5">
-        <span className="grid size-9 place-items-center rounded-full bg-forest text-sm font-semibold text-white">{initials}</span>
+        <span className="grid size-9 place-items-center rounded-full bg-brand text-sm font-semibold text-white">{initials}</span>
         {user.unread > 0 && <span className="absolute -right-0.5 -top-0.5 size-3 rounded-full border-2 border-canvas bg-rose" aria-label={`${user.unread} unread notifications`} />}
       </button>
       {open && (
@@ -118,7 +118,7 @@ export function UserMenu({ user }: { user: NonNullable<MenuUser> }) {
 
 function MenuLink({ href, icon: Icon, children }: { href: string; icon: typeof User; children: React.ReactNode }) {
   return (
-    <Link href={href} className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-ink hover:bg-forest-50 hover:text-forest">
+    <Link href={href} className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm text-ink hover:bg-brand-50 hover:text-brand">
       <Icon className="size-4" aria-hidden /> {children}
     </Link>
   );

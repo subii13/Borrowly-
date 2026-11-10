@@ -36,7 +36,7 @@ export function ListenButton({ src, label = "கேட்க / Listen in Tamil" 
   };
 
   return (
-    <button type="button" onClick={play} disabled={state === "loading"} data-testid="listen" className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-medium text-forest ring-1 ring-forest/20 hover:bg-forest-50 disabled:opacity-60">
+    <button type="button" onClick={play} disabled={state === "loading"} data-testid="listen" className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm font-medium text-brand ring-1 ring-brand/20 hover:bg-brand-50 disabled:opacity-60">
       {state === "loading" ? <Loader2 className="size-4 animate-spin" /> : state === "playing" ? <AudioLines className="size-4" /> : <Volume2 className="size-4" />}
       {state === "playing" ? "Stop" : label}
     </button>

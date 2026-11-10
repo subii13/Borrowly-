@@ -47,7 +47,7 @@ export default async function RentCheckoutPage({ params }: { params: Promise<{ h
             </div>
           ) : (
             <>
-              <p className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-forest-50 px-3 py-1 text-sm text-forest"><Clock className="size-4" />Dates held for about {minutesLeft} more minute{minutesLeft === 1 ? "" : "s"}</p>
+              <p className="mb-5 inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-sm text-brand"><Clock className="size-4" />Dates held for about {minutesLeft} more minute{minutesLeft === 1 ? "" : "s"}</p>
               <PayForm total={formatINR(q.totalPaise)} idempotencyKey={`rent_${randomToken(16)}`} pay={payRentalAction.bind(null, hold.id)} successPath="/account/bookings/:id?new=1" failurePath="/account/bookings/:id" />
             </>
           )}
@@ -58,7 +58,7 @@ export default async function RentCheckoutPage({ params }: { params: Promise<{ h
               <SafeImage src={hold.listing.images[0]?.url ?? ""} alt="" fill sizes="112px" className="object-cover" />
             </div>
             <div className="min-w-0">
-              <Link href={`/listings/${hold.listingId}`} className="line-clamp-2 font-semibold hover:text-forest">{hold.listing.title}</Link>
+              <Link href={`/listings/${hold.listingId}`} className="line-clamp-2 font-semibold hover:text-brand">{hold.listing.title}</Link>
               <p className="mt-1 text-sm text-ink-soft">{hold.listing.seller.displayName} · {hold.listing.area}</p>
             </div>
           </div>

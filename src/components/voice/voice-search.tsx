@@ -70,11 +70,11 @@ export function VoiceSearchPanel({ replyUrl }: { replyUrl: string }) {
   ].filter(Boolean) as string[];
 
   return (
-    <section className="mb-8 rounded-2xl border border-forest/20 bg-forest-50/60 p-4 sm:p-5" aria-label="Voice search">
+    <section className="mb-8 rounded-2xl border border-brand/20 bg-brand-50/60 p-4 sm:p-5" aria-label="Voice search">
       <div className="flex items-start gap-3">
-        <span className="grid size-9 shrink-0 place-items-center rounded-full bg-forest text-white"><Mic className="size-4" /></span>
+        <span className="grid size-9 shrink-0 place-items-center rounded-full bg-brand text-white"><Mic className="size-4" /></span>
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-semibold uppercase tracking-wide text-forest">You said</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-brand">You said</p>
           <p className="mt-0.5 text-lg font-medium text-ink" lang={i.tamil ? "ta" : "en"}>“{result.transcript}”</p>
           {chips.length > 0 && (
             <div className="mt-3 flex flex-wrap gap-1.5">
@@ -91,7 +91,7 @@ export function VoiceSearchPanel({ replyUrl }: { replyUrl: string }) {
               }}
               aria-pressed={audioState === "playing"}
               disabled={audioState === "loading" || audioState === "error"}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 font-medium text-forest ring-1 ring-forest/20 disabled:opacity-60"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 font-medium text-brand ring-1 ring-brand/20 disabled:opacity-60"
             >
               {audioState === "loading" ? <Loader2 className="size-3.5 animate-spin" /> : audioState === "playing" ? <Square className="size-3 fill-current" /> : <Volume2 className="size-3.5" />}
               {audioState === "loading" ? "Preparing reply…" : audioState === "playing" ? (lang === "ta" ? "நிறுத்து / Stop" : "Stop") : audioState === "error" ? "Spoken reply unavailable" : lang === "ta" ? "கேட்க / Listen" : "Listen"}

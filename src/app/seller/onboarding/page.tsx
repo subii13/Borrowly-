@@ -18,7 +18,7 @@ export default async function OnboardingPage() {
       <PageHeader eyebrow="Start selling" title="Create your seller profile" description="Your customer account stays the same — selling is just switched on." />
       <ul className="mb-6 grid grid-cols-1 gap-2 text-sm text-ink-soft sm:grid-cols-3">
         {["List items to rent, sell, or both", "You set prices, deposits and dates", "Get verified to earn the trust badge"].map((t) => (
-          <li key={t} className="flex items-center gap-2"><CheckCircle2 className="size-4 text-forest" />{t}</li>
+          <li key={t} className="flex items-center gap-2"><CheckCircle2 className="size-4 text-brand" />{t}</li>
         ))}
       </ul>
       <div className="card p-6">

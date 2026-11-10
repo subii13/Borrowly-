@@ -13,7 +13,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
       <h1 className="text-3xl font-bold">Welcome back</h1>
       <p className="mt-2 text-ink-soft">Log in to manage your rentals, orders and listings.</p>
       <div className="mt-8"><LoginForm next={next} /></div>
-      <p className="mt-6 text-sm text-ink-soft">New to Borrowly? <Link href={`/register${next ? `?next=${encodeURIComponent(next)}` : ""}`} className="font-medium text-forest hover:underline">Create an account</Link></p>
+      <p className="mt-6 text-sm text-ink-soft">New to Borrowly? <Link href={`/register${next ? `?next=${encodeURIComponent(next)}` : ""}`} className="font-medium text-brand hover:underline">Create an account</Link></p>
       {env.demoMode && (
         <div className="mt-8 border-t border-line pt-6">
           <p className="text-sm font-semibold">Evaluating Borrowly?</p>

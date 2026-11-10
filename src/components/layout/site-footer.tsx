@@ -21,7 +21,7 @@ export function SiteFooter() {
             <h3 className="text-sm font-semibold">{col.title}</h3>
             <ul className="mt-3 space-y-2.5 text-sm">
               {col.links.map(([label, href]) => (
-                <li key={href}><Link href={href} className="text-ink-soft hover:text-forest">{label}</Link></li>
+                <li key={href}><Link href={href} className="text-ink-soft hover:text-brand">{label}</Link></li>
               ))}
             </ul>
           </div>

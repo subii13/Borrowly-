@@ -7,7 +7,7 @@ export default async function AdminBookingPage({ params }: { params: Promise<{ i
   const { actor } = await requireAdminPage();
   return (
     <>
-      <Link href="/admin/bookings" className="mb-4 inline-block text-sm text-ink-soft hover:text-forest">← All bookings</Link>
+      <Link href="/admin/bookings" className="mb-4 inline-block text-sm text-ink-soft hover:text-brand">← All bookings</Link>
       <BookingDetail bookingId={id} actor={actor} />
     </>
   );

@@ -54,7 +54,7 @@ export default async function SellerDashboard() {
 
       <div className="mt-8 grid grid-cols-1 gap-8 xl:grid-cols-2">
         <section>
-          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Requests to confirm</h2><Link href="/seller/bookings?tab=requested" className="text-sm font-medium text-forest hover:underline">All bookings</Link></div>
+          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Requests to confirm</h2><Link href="/seller/bookings?tab=requested" className="text-sm font-medium text-brand hover:underline">All bookings</Link></div>
           {requests.length ? (
             <BookingList basePath="/seller/bookings" showNet rows={requests.map((b) => ({ ...b, counterparty: b.customer.name }))} />
           ) : (
@@ -62,7 +62,7 @@ export default async function SellerDashboard() {
           )}
         </section>
         <section>
-          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Upcoming returns</h2><Link href="/seller/returns" className="text-sm font-medium text-forest hover:underline">View all</Link></div>
+          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Upcoming returns</h2><Link href="/seller/returns" className="text-sm font-medium text-brand hover:underline">View all</Link></div>
           {o.upcomingReturns.length ? (
             <ul className="card divide-y divide-line">
               {o.upcomingReturns.map((b) => {

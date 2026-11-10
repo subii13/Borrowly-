@@ -7,7 +7,7 @@ export type Tone = "neutral" | "green" | "amber" | "rose" | "sky";
 
 const tones: Record<Tone, string> = {
   neutral: "bg-ink/5 text-ink-soft",
-  green: "bg-forest-50 text-forest",
+  green: "bg-brand-50 text-brand",
   amber: "bg-amber-50 text-amber",
   rose: "bg-rose-50 text-rose",
   sky: "bg-sky-50 text-sky",
@@ -48,7 +48,7 @@ export function PageHeader({ title, description, actions, eyebrow }: { title: st
 export function EmptyState({ icon: Icon, title, body, action }: { icon: LucideIcon; title: string; body: string; action?: ReactNode }) {
   return (
     <div className="card flex flex-col items-center px-6 py-12 text-center">
-      <div className="mb-4 grid size-12 place-items-center rounded-full bg-forest-50 text-forest">
+      <div className="mb-4 grid size-12 place-items-center rounded-full bg-brand-50 text-brand">
         <Icon className="size-5" aria-hidden />
       </div>
       <h3 className="text-base font-semibold">{title}</h3>
@@ -63,7 +63,7 @@ export function Stat({ label, value, hint, icon: Icon }: { label: string; value:
     <div className="card p-4 sm:p-5">
       <div className="flex items-center justify-between gap-2">
         <p className="text-sm text-ink-soft">{label}</p>
-        {Icon && <Icon className="size-4 text-sage" aria-hidden />}
+        {Icon && <Icon className="size-4 text-sand" aria-hidden />}
       </div>
       <p className="mt-2 font-display text-2xl font-bold tabular-nums">{value}</p>
       {hint && <p className="mt-1 text-xs text-ink-faint">{hint}</p>}
@@ -95,7 +95,7 @@ export function Stars({ value }: { value: number }) {
 
 export function Avatar({ name, className }: { name: string; className?: string }) {
   const initials = name.split(/\s+/).map((p) => p[0]).join("").slice(0, 2).toUpperCase();
-  return <span className={clsx("grid shrink-0 place-items-center rounded-full bg-forest-100 font-semibold text-forest", className ?? "size-9 text-sm")}>{initials}</span>;
+  return <span className={clsx("grid shrink-0 place-items-center rounded-full bg-brand-100 font-semibold text-brand", className ?? "size-9 text-sm")}>{initials}</span>;
 }
 
 export function Field({ label, error, hint, children, htmlFor }: { label: string; error?: string; hint?: string; children: ReactNode; htmlFor?: string }) {

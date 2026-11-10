@@ -13,8 +13,8 @@ export function EarningsChart({ data, title }: { data: Point[]; title: string })
       <figcaption className="flex flex-wrap items-center justify-between gap-3">
         <span className="font-semibold">{title}</span>
         <span className="flex gap-4 text-xs text-ink-soft">
-          <span className="inline-flex items-center gap-1.5"><span className="size-2.5 rounded-sm bg-forest-100" />Gross</span>
-          <span className="inline-flex items-center gap-1.5"><span className="size-2.5 rounded-sm bg-forest" />Your earnings</span>
+          <span className="inline-flex items-center gap-1.5"><span className="size-2.5 rounded-sm bg-brand-100" />Gross</span>
+          <span className="inline-flex items-center gap-1.5"><span className="size-2.5 rounded-sm bg-brand" />Your earnings</span>
         </span>
       </figcaption>
       {empty ? (
@@ -22,7 +22,7 @@ export function EarningsChart({ data, title }: { data: Point[]; title: string })
       ) : (
         <svg viewBox={`0 0 ${W} ${H + 24}`} className="mt-4 w-full" role="img" aria-label={`${title}: ${data.map((d) => `${d.label} ${formatINR(d.net)}`).join(", ")}`}>
           {[0.25, 0.5, 0.75, 1].map((t) => (
-            <line key={t} x1={pad} x2={W - pad} y1={H - (H - 16) * t} y2={H - (H - 16) * t} stroke="#E4E4DE" strokeDasharray="3 4" />
+            <line key={t} x1={pad} x2={W - pad} y1={H - (H - 16) * t} y2={H - (H - 16) * t} stroke="#ECE3D7" strokeDasharray="3 4" />
           ))}
           {data.map((d, i) => {
             const x = pad + i * (bw + gap);
@@ -30,10 +30,10 @@ export function EarningsChart({ data, title }: { data: Point[]; title: string })
             const nh = ((H - 16) * d.net) / max;
             return (
               <g key={d.label}>
-                <rect x={x} y={H - gh} width={bw} height={gh} rx={6} fill="#D5E4DB" />
-                <rect x={x + bw * 0.2} y={H - nh} width={bw * 0.6} height={nh} rx={5} fill="#245C46" />
-                {d.net > 0 && <text x={x + bw / 2} y={H - gh - 6} textAnchor="middle" fontSize="11" fill="#565C55">{formatINR(d.net)}</text>}
-                <text x={x + bw / 2} y={H + 18} textAnchor="middle" fontSize="12" fill="#8A8F88">{d.label}</text>
+                <rect x={x} y={H - gh} width={bw} height={gh} rx={6} fill="#F6DACC" />
+                <rect x={x + bw * 0.2} y={H - nh} width={bw * 0.6} height={nh} rx={5} fill="#B5482A" />
+                {d.net > 0 && <text x={x + bw / 2} y={H - gh - 6} textAnchor="middle" fontSize="11" fill="#5E554D">{formatINR(d.net)}</text>}
+                <text x={x + bw / 2} y={H + 18} textAnchor="middle" fontSize="12" fill="#8E847A">{d.label}</text>
               </g>
             );
           })}

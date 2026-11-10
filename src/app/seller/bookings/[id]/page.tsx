@@ -10,7 +10,7 @@ export default async function SellerBookingPage({ params }: { params: Promise<{ 
   const { actor } = await requireSellerPage();
   return (
     <>
-      <Link href="/seller/bookings" className="mb-4 inline-block text-sm text-ink-soft hover:text-forest">← All bookings</Link>
+      <Link href="/seller/bookings" className="mb-4 inline-block text-sm text-ink-soft hover:text-brand">← All bookings</Link>
       <BookingDetail bookingId={id} actor={actor} />
     </>
   );

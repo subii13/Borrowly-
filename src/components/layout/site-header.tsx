@@ -21,7 +21,7 @@ export async function SiteHeader() {
   return (
     <>
       {env.demoMode && (
-        <div className="bg-forest-dark text-center text-xs text-white/90">
+        <div className="bg-brand-dark text-center text-xs text-white/90">
           <p className="container-page py-1.5">
             Demonstration marketplace: listings and people are sample data and payments are simulated.{" "}
             <Link href="/demo" className="font-semibold underline underline-offset-2">Explore the demo</Link>

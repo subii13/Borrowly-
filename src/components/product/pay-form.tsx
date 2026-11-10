@@ -27,8 +27,8 @@ export function PayForm({ total, idempotencyKey, pay, successPath, failurePath }
       <fieldset className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
         <legend className="label">Simulated card result</legend>
         {(["approve", "decline"] as const).map((o) => (
-          <label key={o} className={clsx("flex cursor-pointer items-center gap-3 rounded-xl border p-4 text-sm", outcome === o ? "border-forest bg-forest-50" : "border-line bg-white")}>
-            <input type="radio" name="outcome" value={o} checked={outcome === o} onChange={() => setOutcome(o)} className="accent-forest" data-testid={`outcome-${o}`} />
+          <label key={o} className={clsx("flex cursor-pointer items-center gap-3 rounded-xl border p-4 text-sm", outcome === o ? "border-brand bg-brand-50" : "border-line bg-white")}>
+            <input type="radio" name="outcome" value={o} checked={outcome === o} onChange={() => setOutcome(o)} className="accent-brand" data-testid={`outcome-${o}`} />
             <span>
               <span className="block font-semibold">{o === "approve" ? "Approve payment" : "Decline payment"}</span>
               <span className="text-ink-soft">{o === "approve" ? "Demo card ending 4242" : "Simulates a bank decline"}</span>

@@ -41,7 +41,7 @@ export default async function AdminListings({ searchParams }: { searchParams: Pr
           <tbody>
             {listings.map((l) => (
               <tr key={l.id}>
-                <td><Link href={`/listings/${l.id}`} className="font-medium hover:text-forest">{l.title}</Link><p className="text-xs text-ink-faint">{l.category.name} · {l.area}{l.isDemo && " · demo"}</p>{l.moderationNote && <p className="text-xs text-rose">{l.moderationNote}</p>}</td>
+                <td><Link href={`/listings/${l.id}`} className="font-medium hover:text-brand">{l.title}</Link><p className="text-xs text-ink-faint">{l.category.name} · {l.area}{l.isDemo && " · demo"}</p>{l.moderationNote && <p className="text-xs text-rose">{l.moderationNote}</p>}</td>
                 <td className="text-ink-soft">{l.seller.displayName}</td>
                 <td className="whitespace-nowrap text-sm">{l.rentalEnabled ? `${formatINR(l.dailyRatePaise)}/day` : formatINR(l.salePricePaise)}</td>
                 <td><StatusBadge status={l.status} label={LISTING_STATUS_LABEL[l.status]} /></td>

@@ -52,7 +52,7 @@ export default async function BuyCheckoutPage({ params }: { params: Promise<{ li
               <SafeImage src={listing.images[0]?.url ?? ""} alt="" fill sizes="112px" className="object-cover" />
             </div>
             <div className="min-w-0">
-              <Link href={`/listings/${listingId}`} className="line-clamp-2 font-semibold hover:text-forest">{listing.title}</Link>
+              <Link href={`/listings/${listingId}`} className="line-clamp-2 font-semibold hover:text-brand">{listing.title}</Link>
               <p className="mt-1 text-sm text-ink-soft">{CONDITION_LABEL[listing.condition]} · {listing.area}</p>
             </div>
           </div>

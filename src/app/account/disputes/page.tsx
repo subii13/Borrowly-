@@ -34,7 +34,7 @@ export default async function DisputesPage() {
             <tbody>
               {disputes.map((d) => (
                 <tr key={d.id}>
-                  <td><Link href={`/account/disputes/${d.id}`} className="font-medium text-forest hover:underline">{d.code}</Link>{d.raisedById !== user.id && <span className="ml-2 text-xs text-ink-faint">raised by other party</span>}</td>
+                  <td><Link href={`/account/disputes/${d.id}`} className="font-medium text-brand hover:underline">{d.code}</Link>{d.raisedById !== user.id && <span className="ml-2 text-xs text-ink-faint">raised by other party</span>}</td>
                   <td>{d.booking?.code ?? d.purchaseOrder?.code}</td>
                   <td>{DISPUTE_CATEGORY_LABEL[d.category]}</td>
                   <td className="whitespace-nowrap">{formatDay(d.createdAt)}</td>

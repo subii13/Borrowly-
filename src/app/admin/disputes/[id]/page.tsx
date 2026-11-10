@@ -15,7 +15,7 @@ export default async function AdminDisputePage({ params }: { params: Promise<{ i
   const refundable = payment ? payment.amountPaise - payment.refunds.reduce((s, r) => s + r.amountPaise, 0) : 0;
   return (
     <>
-      <Link href="/admin/disputes" className="mb-4 inline-block text-sm text-ink-soft hover:text-forest">← All disputes</Link>
+      <Link href="/admin/disputes" className="mb-4 inline-block text-sm text-ink-soft hover:text-brand">← All disputes</Link>
       <DisputeDetail disputeId={id} actor={actor}>
         {d?.status === "OPEN" && (
           <div className="flex items-center justify-between gap-3 rounded-xl border border-amber/30 bg-amber-50 p-4 text-sm text-amber">

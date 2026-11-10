@@ -33,7 +33,7 @@ export default async function SellPage() {
           { icon: BadgeCheck, title: "Earn the verified badge", body: "Confirm your email and phone and pass a quick profile review." },
         ].map(({ icon: Icon, title, body }) => (
           <div key={title} className="card p-6">
-            <Icon className="size-5 text-forest" />
+            <Icon className="size-5 text-brand" />
             <h2 className="mt-4 text-base font-semibold">{title}</h2>
             <p className="mt-1.5 text-sm text-ink-soft">{body}</p>
           </div>

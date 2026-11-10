@@ -48,7 +48,7 @@ export function LoginForm({ next }: { next?: string }) {
       <Field label="Password" htmlFor="password" error={formState.errors.password?.message}>
         <input id="password" type="password" autoComplete="current-password" className="input" {...register("password")} />
       </Field>
-      <div className="text-right text-sm"><Link href="/forgot-password" className="text-forest hover:underline">Forgot password?</Link></div>
+      <div className="text-right text-sm"><Link href="/forgot-password" className="text-brand hover:underline">Forgot password?</Link></div>
       <Submit pending={pending}>Log in</Submit>
     </form>
   );
@@ -94,7 +94,7 @@ export function ForgotForm() {
   const [pending, start] = useTransition();
   const [sent, setSent] = useState<string | null>(null);
   const { register, handleSubmit, formState } = useForm<z.infer<typeof forgotSchema>>({ resolver: zodResolver(forgotSchema) });
-  if (sent) return <p className="rounded-lg bg-forest-50 px-4 py-3 text-sm text-forest">{sent}</p>;
+  if (sent) return <p className="rounded-lg bg-brand-50 px-4 py-3 text-sm text-brand">{sent}</p>;
   return (
     <form
       noValidate

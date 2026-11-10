@@ -26,7 +26,7 @@ export default async function AdminSellers({ searchParams }: { searchParams: Pro
           <tbody>
             {sellers.map((s) => (
               <tr key={s.id}>
-                <td><Link href={`/sellers/${s.id}`} className="font-medium hover:text-forest">{s.displayName}</Link><p className="text-xs text-ink-faint">{s.user.email} · {s.sellerType.toLowerCase()}</p></td>
+                <td><Link href={`/sellers/${s.id}`} className="font-medium hover:text-brand">{s.displayName}</Link><p className="text-xs text-ink-faint">{s.user.email} · {s.sellerType.toLowerCase()}</p></td>
                 <td className="text-ink-soft">{s.area}</td>
                 <td className="text-sm text-ink-soft">{s._count.listings} listings · {s._count.bookings + s._count.purchases} txns</td>
                 <td><Rating sum={s.ratingSum} count={s.ratingCount} /></td>

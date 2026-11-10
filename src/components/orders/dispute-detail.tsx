@@ -65,7 +65,7 @@ export async function DisputeDetail({ disputeId, actor, children }: { disputeId:
             </ul>
           </div>
           {d.resolutionNote && (
-            <div className="card border-forest/30 p-5">
+            <div className="card border-brand/30 p-5">
               <h3 className="font-semibold">Decision</h3>
               <p className="mt-2 text-sm">{d.resolutionNote}</p>
               <p className="mt-2 text-xs text-ink-faint">Refund decision: {d.refundDecision?.toLowerCase() ?? "none"} · {d.resolvedBy?.name} · {d.resolvedAt && formatDateTime(d.resolvedAt)}</p>
@@ -77,7 +77,7 @@ export async function DisputeDetail({ disputeId, actor, children }: { disputeId:
           <div className="card p-5">
             <h3 className="font-semibold">Transaction</h3>
             <div className="mt-2">
-              <DefinitionList items={[["Reference", <Link key="r" href={txnHref} className="text-forest hover:underline">{txn.code}</Link>], ["Item", txn.listing.title], ["Type", d.booking ? "Rental" : "Purchase"], ["Amount paid", formatINR(txn.totalPaise)]]} />
+              <DefinitionList items={[["Reference", <Link key="r" href={txnHref} className="text-brand hover:underline">{txn.code}</Link>], ["Item", txn.listing.title], ["Type", d.booking ? "Rental" : "Purchase"], ["Amount paid", formatINR(txn.totalPaise)]]} />
             </div>
           </div>
           <div className="card p-5">

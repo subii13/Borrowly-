@@ -20,7 +20,7 @@ export function DashboardNav({ title, items }: { title: string; items: NavItem[]
             aria-current={isActive(item.href) ? "page" : undefined}
             className={clsx(
               "flex shrink-0 items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm whitespace-nowrap",
-              isActive(item.href) ? "bg-forest text-white" : "text-ink-soft hover:bg-ink/5 hover:text-ink",
+              isActive(item.href) ? "bg-brand text-white" : "text-ink-soft hover:bg-ink/5 hover:text-ink",
             )}
           >
             {item.label}

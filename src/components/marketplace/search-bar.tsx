@@ -48,7 +48,7 @@ export function SearchBar({ initial = "", size = "md", autoFocus }: { initial?: 
         else submit();
       }}
     >
-      <div className={clsx("flex items-center gap-2 rounded-xl border border-line-strong bg-white shadow-[var(--shadow-card)] focus-within:border-forest focus-within:ring-2 focus-within:ring-forest/15", size === "lg" ? "p-1.5 pl-4" : "p-1 pl-3")}>
+      <div className={clsx("flex items-center gap-2 rounded-xl border border-line-strong bg-white shadow-[var(--shadow-card)] focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/15", size === "lg" ? "p-1.5 pl-4" : "p-1 pl-3")}>
         <Search className="size-5 shrink-0 text-ink-faint" aria-hidden />
         <input
           type="search"
@@ -80,7 +80,7 @@ export function SearchBar({ initial = "", size = "md", autoFocus }: { initial?: 
             router.push(r.url);
           }}
         />
-        <button type="submit" className={clsx("shrink-0 rounded-lg bg-forest font-medium text-white hover:bg-forest-dark", size === "lg" ? "px-5 py-3" : "px-4 py-2 text-sm")}>
+        <button type="submit" className={clsx("shrink-0 rounded-lg bg-brand font-medium text-white hover:bg-brand-dark", size === "lg" ? "px-5 py-3" : "px-4 py-2 text-sm")}>
           Search
         </button>
       </div>
@@ -92,7 +92,7 @@ export function SearchBar({ initial = "", size = "md", autoFocus }: { initial?: 
                 type="button"
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => router.push(`/listings/${s.id}`)}
-                className={clsx("flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left text-sm", i === active ? "bg-forest-50" : "hover:bg-canvas")}
+                className={clsx("flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left text-sm", i === active ? "bg-brand-50" : "hover:bg-canvas")}
               >
                 <span className="truncate text-ink">{s.title}</span>
                 <span className="shrink-0 text-xs text-ink-faint">{s.category}</span>
@@ -100,7 +100,7 @@ export function SearchBar({ initial = "", size = "md", autoFocus }: { initial?: 
             </li>
           ))}
           <li>
-            <button type="button" onMouseDown={(e) => e.preventDefault()} onClick={() => submit()} className="w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-forest hover:bg-canvas">
+            <button type="button" onMouseDown={(e) => e.preventDefault()} onClick={() => submit()} className="w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-brand hover:bg-canvas">
               See all results for “{q.trim()}”
             </button>
           </li>

@@ -29,7 +29,7 @@ export function Filters({ categories, lockCategory }: { categories: Cat[]; lockC
         <p className="label">Rent or buy</p>
         <div className="grid grid-cols-2 gap-1.5">
           {[["", "All"], ["rent", "Rent"], ["buy", "Buy"], ["both", "Rent & buy"]].map(([v, l]) => (
-            <button key={v} type="button" onClick={() => set("mode", v || null)} className={`rounded-lg border px-3 py-2 text-sm ${val("mode") === v ? "border-forest bg-forest-50 font-medium text-forest" : "border-line bg-white text-ink-soft hover:border-line-strong"}`}>
+            <button key={v} type="button" onClick={() => set("mode", v || null)} className={`rounded-lg border px-3 py-2 text-sm ${val("mode") === v ? "border-brand bg-brand-50 font-medium text-brand" : "border-line bg-white text-ink-soft hover:border-line-strong"}`}>
               {l}
             </button>
           ))}
@@ -81,7 +81,7 @@ export function Filters({ categories, lockCategory }: { categories: Cat[]; lockC
         <button className="mt-2 w-full rounded-lg border border-line-strong bg-white py-2 text-sm font-medium hover:bg-canvas">Apply price</button>
       </form>
       {activeCount > 0 && (
-        <button type="button" onClick={() => router.push(lockCategory ? pathname : `${pathname}${params.get("q") ? `?q=${encodeURIComponent(params.get("q")!)}` : ""}`)} className="text-sm font-medium text-forest hover:underline">
+        <button type="button" onClick={() => router.push(lockCategory ? pathname : `${pathname}${params.get("q") ? `?q=${encodeURIComponent(params.get("q")!)}` : ""}`)} className="text-sm font-medium text-brand hover:underline">
           Clear all filters
         </button>
       )}
@@ -94,7 +94,7 @@ export function Filters({ categories, lockCategory }: { categories: Cat[]; lockC
         <div className="sticky top-24">{body}</div>
       </aside>
       <button type="button" onClick={() => setOpen(true)} className="inline-flex items-center gap-2 rounded-lg border border-line-strong bg-white px-3.5 py-2 text-sm font-medium lg:hidden">
-        <SlidersHorizontal className="size-4" aria-hidden /> Filters {activeCount > 0 && <span className="rounded-full bg-forest px-1.5 text-xs text-white">{activeCount}</span>}
+        <SlidersHorizontal className="size-4" aria-hidden /> Filters {activeCount > 0 && <span className="rounded-full bg-brand px-1.5 text-xs text-white">{activeCount}</span>}
       </button>
       {open && (
         <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true">
@@ -105,7 +105,7 @@ export function Filters({ categories, lockCategory }: { categories: Cat[]; lockC
               <button onClick={() => setOpen(false)} className="grid size-10 place-items-center" aria-label="Close filters"><X className="size-5" /></button>
             </div>
             {body}
-            <button onClick={() => setOpen(false)} className="mt-6 h-12 w-full rounded-lg bg-forest font-medium text-white">Show results</button>
+            <button onClick={() => setOpen(false)} className="mt-6 h-12 w-full rounded-lg bg-brand font-medium text-white">Show results</button>
           </div>
         </div>
       )}

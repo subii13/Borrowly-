@@ -45,7 +45,7 @@ export function ImageUploader({ scope, value, onChange, max = 6, label = "Add ph
         </div>
       ))}
       {value.length < max && (
-        <button type="button" disabled={busy} onClick={() => input.current?.click()} className="grid size-20 place-items-center rounded-lg border border-dashed border-line-strong bg-white text-ink-soft hover:border-forest hover:text-forest" aria-label={label}>
+        <button type="button" disabled={busy} onClick={() => input.current?.click()} className="grid size-20 place-items-center rounded-lg border border-dashed border-line-strong bg-white text-ink-soft hover:border-brand hover:text-brand" aria-label={label}>
           {busy ? <Loader2 className="size-5 animate-spin" /> : <ImagePlus className="size-5" />}
         </button>
       )}

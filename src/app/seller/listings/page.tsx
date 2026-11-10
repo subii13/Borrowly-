@@ -34,7 +34,7 @@ export default async function SellerListingsPage() {
                     <div className="flex items-center gap-3">
                       <div className="relative aspect-[4/3] w-16 shrink-0 overflow-hidden rounded-md"><SafeImage src={l.images[0]?.url ?? ""} alt="" fill sizes="64px" className="object-cover" /></div>
                       <div className="min-w-0">
-                        <Link href={`/listings/${l.id}`} className="line-clamp-1 font-medium hover:text-forest">{l.title}</Link>
+                        <Link href={`/listings/${l.id}`} className="line-clamp-1 font-medium hover:text-brand">{l.title}</Link>
                         <p className="text-xs text-ink-faint">{l.category.name} · {l.area}</p>
                         {l.moderationNote && <p className="text-xs text-rose">Moderation: {l.moderationNote}</p>}
                       </div>

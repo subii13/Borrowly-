@@ -21,7 +21,7 @@ export default async function AdminDisputes() {
           <tbody>
             {disputes.map((d) => (
               <tr key={d.id}>
-                <td><Link href={`/admin/disputes/${d.id}`} className="font-medium text-forest hover:underline">{d.code}</Link><p className="text-xs text-ink-faint">on {d.booking?.code ?? d.purchaseOrder?.code}</p></td>
+                <td><Link href={`/admin/disputes/${d.id}`} className="font-medium text-brand hover:underline">{d.code}</Link><p className="text-xs text-ink-faint">on {d.booking?.code ?? d.purchaseOrder?.code}</p></td>
                 <td>{DISPUTE_CATEGORY_LABEL[d.category]}</td>
                 <td>{d.raisedBy.name}</td>
                 <td className="whitespace-nowrap text-ink-soft">{formatDay(d.createdAt)}</td>

@@ -24,7 +24,7 @@ export default async function VerificationQueue() {
             <li key={s.id} className="card p-5">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <Link href={`/sellers/${s.id}`} className="text-lg font-semibold hover:text-forest">{s.displayName}</Link>
+                  <Link href={`/sellers/${s.id}`} className="text-lg font-semibold hover:text-brand">{s.displayName}</Link>
                   <p className="text-sm text-ink-soft">{s.user.name} · {s.user.email} · {s.sellerType.toLowerCase()} · {s.area}</p>
                   <ul className="mt-3 space-y-1 text-sm">
                     <li>Email verified: <strong>{s.user.emailVerifiedAt ? "yes" : "no"}</strong></li>

@@ -10,7 +10,7 @@ export default async function DisputePage({ params }: { params: Promise<{ id: st
   const { actor } = await requireUserPage(`/account/disputes/${id}`);
   return (
     <>
-      <Link href="/account/disputes" className="mb-4 inline-block text-sm text-ink-soft hover:text-forest">← All disputes</Link>
+      <Link href="/account/disputes" className="mb-4 inline-block text-sm text-ink-soft hover:text-brand">← All disputes</Link>
       <DisputeDetail disputeId={id} actor={actor} />
     </>
   );

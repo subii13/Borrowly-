@@ -13,7 +13,7 @@ export default async function SellerProfileSettings() {
   const s = await db.sellerProfile.findUniqueOrThrow({ where: { id: actor.sellerId } });
   return (
     <>
-      <PageHeader title="Seller profile" description={<>How customers see you. <Link href={`/sellers/${s.id}`} className="text-forest underline">View public profile</Link></>} />
+      <PageHeader title="Seller profile" description={<>How customers see you. <Link href={`/sellers/${s.id}`} className="text-brand underline">View public profile</Link></>} />
       <div className="card p-6">
         <SellerProfileForm
           action={updateSellerProfileAction}

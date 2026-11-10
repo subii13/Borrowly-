@@ -46,7 +46,7 @@ export default async function AccountOverview({ searchParams }: { searchParams: 
 
       <div className="mt-8 grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
         <section>
-          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Current & upcoming rentals</h2><Link href="/account/bookings" className="text-sm font-medium text-forest hover:underline">All bookings</Link></div>
+          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Current & upcoming rentals</h2><Link href="/account/bookings" className="text-sm font-medium text-brand hover:underline">All bookings</Link></div>
           {current.length ? (
             <BookingList basePath="/account/bookings" rows={current.map((b) => ({ ...b, counterparty: b.seller.displayName }))} />
           ) : (
@@ -54,12 +54,12 @@ export default async function AccountOverview({ searchParams }: { searchParams: 
           )}
         </section>
         <section>
-          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Latest updates</h2><Link href="/account/notifications" className="text-sm font-medium text-forest hover:underline">All</Link></div>
+          <div className="mb-3 flex items-center justify-between"><h2 className="text-lg font-bold">Latest updates</h2><Link href="/account/notifications" className="text-sm font-medium text-brand hover:underline">All</Link></div>
           <ul className="card divide-y divide-line">
             {notes.map((n) => (
               <li key={n.id} className="p-4">
                 <Link href={n.link ?? "/account/notifications"} className="block">
-                  <p className="flex items-center gap-2 text-sm font-semibold">{!n.readAt && <span className="size-2 rounded-full bg-forest" />}{n.title}</p>
+                  <p className="flex items-center gap-2 text-sm font-semibold">{!n.readAt && <span className="size-2 rounded-full bg-brand" />}{n.title}</p>
                   <p className="mt-0.5 line-clamp-2 text-sm text-ink-soft">{n.body}</p>
                   <p className="mt-1 text-xs text-ink-faint">{formatDateTime(n.createdAt)}</p>
                 </Link>

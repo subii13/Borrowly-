@@ -32,22 +32,22 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         {/* Layered backdrop: soft green light and a faint grid for depth. */}
         <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
-          <div className="absolute -right-40 -top-40 size-[720px] rounded-full bg-[radial-gradient(circle,rgba(127,207,159,0.28),transparent_65%)]" />
-          <div className="absolute -left-32 bottom-0 size-[480px] rounded-full bg-[radial-gradient(circle,rgba(36,92,70,0.10),transparent_65%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(32,36,31,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(32,36,31,0.04)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
+          <div className="absolute -right-40 -top-40 size-[720px] rounded-full bg-[radial-gradient(circle,rgba(232,163,61,0.24),transparent_65%)]" />
+          <div className="absolute -left-32 bottom-0 size-[480px] rounded-full bg-[radial-gradient(circle,rgba(181,72,42,0.09),transparent_65%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(34,28,24,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(34,28,24,0.045)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
         </div>
         <div className="container-page grid grid-cols-1 items-center gap-8 py-10 md:py-14 lg:grid-cols-[1.05fr_1fr] lg:py-16">
           <div>
             <div className="flex flex-wrap items-center gap-2 [animation:rise_700ms_ease-out_both]">
               <p className="eyebrow">Now live in Coimbatore</p>
-              <Link href="/voice" className="inline-flex items-center gap-1.5 rounded-full border border-forest/20 bg-white/80 px-2.5 py-1 text-xs font-medium text-forest shadow-sm backdrop-blur hover:border-forest/40">
+              <Link href="/voice" className="inline-flex items-center gap-1.5 rounded-full border border-brand/20 bg-white/80 px-2.5 py-1 text-xs font-medium text-brand shadow-sm backdrop-blur hover:border-brand/40">
                 <Mic className="size-3.5" aria-hidden /> Voice in Tamil · Gnani AI
               </Link>
             </div>
             <h1 className="mt-4 text-[44px] font-extrabold leading-[1.02] [animation:rise_700ms_120ms_ease-out_both] sm:text-6xl lg:text-[68px]">
               Own less.
               <br />
-              <span className="bg-gradient-to-r from-forest via-[#2f7a5a] to-[#4f9c78] bg-clip-text text-transparent">Access more.</span>
+              <span className="bg-gradient-to-r from-brand via-[#cf5f2d] to-marigold bg-clip-text text-transparent">Access more.</span>
             </h1>
             <p className="mt-5 max-w-lg text-lg text-ink-soft [animation:rise_700ms_220ms_ease-out_both]">
               Rent or buy pre-owned items from verified individuals and small businesses in Coimbatore — just say what you need.
@@ -57,7 +57,7 @@ export default async function HomePage() {
               <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
                 <span className="text-ink-faint">Popular:</span>
                 {POPULAR_SEARCHES.map((s) => (
-                  <Link key={s} href={`/explore?q=${encodeURIComponent(s)}`} className="rounded-full border border-line bg-white/80 px-3 py-1 text-ink-soft backdrop-blur transition-colors hover:border-forest hover:text-forest">
+                  <Link key={s} href={`/explore?q=${encodeURIComponent(s)}`} className="rounded-full border border-line bg-white/80 px-3 py-1 text-ink-soft backdrop-blur transition-colors hover:border-brand hover:text-brand">
                     {s}
                   </Link>
                 ))}
@@ -85,7 +85,7 @@ export default async function HomePage() {
             <p className="eyebrow">Categories</p>
             <h2 id="cat-heading" className="mt-2 text-3xl font-bold">What do you need this week?</h2>
           </div>
-          <Link href="/explore" className="hidden items-center gap-1 text-sm font-medium text-forest hover:underline sm:inline-flex">All listings <ArrowRight className="size-4" /></Link>
+          <Link href="/explore" className="hidden items-center gap-1 text-sm font-medium text-brand hover:underline sm:inline-flex">All listings <ArrowRight className="size-4" /></Link>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
           {categories.map((c, i) => (
@@ -113,7 +113,7 @@ export default async function HomePage() {
             <p className="eyebrow">Featured near you</p>
             <h2 id="featured-heading" className="mt-2 text-3xl font-bold">Top-rated across Coimbatore</h2>
           </div>
-          <Link href="/explore?sort=newest" className="hidden items-center gap-1 text-sm font-medium text-forest hover:underline sm:inline-flex">See more <ArrowRight className="size-4" /></Link>
+          <Link href="/explore?sort=newest" className="hidden items-center gap-1 text-sm font-medium text-brand hover:underline sm:inline-flex">See more <ArrowRight className="size-4" /></Link>
         </div>
         <ListingGrid listings={featured} />
       </section>
@@ -134,7 +134,7 @@ export default async function HomePage() {
               { icon: MapPin, title: "Local Marketplace", body: "Pick up from neighbours in Peelamedu, RS Puram, Gandhipuram and more — no shipping, no waiting." },
             ].map(({ icon: Icon, title, body }, i) => (
               <Reveal key={title} delay={i * 90}>
-                <div className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-[#5fb48a] to-forest text-white shadow-[0_10px_24px_-10px_rgba(36,92,70,0.7),inset_0_1px_0_rgba(255,255,255,0.35)]"><Icon className="size-5" aria-hidden /></div>
+                <div className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-marigold to-brand text-white shadow-[0_10px_24px_-10px_rgba(142,53,25,0.6),inset_0_1px_0_rgba(255,255,255,0.35)]"><Icon className="size-5" aria-hidden /></div>
                 <h3 className="mt-4 text-base font-semibold">{title}</h3>
                 <p className="mt-1.5 text-sm text-ink-soft">{body}</p>
               </Reveal>
@@ -156,10 +156,10 @@ export default async function HomePage() {
             <Reveal as="li" key={title} delay={i * 110}>
               <Tilt className="h-full rounded-[var(--radius-card)]">
                 <div className="card relative h-full overflow-hidden p-6">
-                  <span className="pointer-events-none absolute -right-3 -top-6 font-display text-[110px] font-extrabold leading-none text-forest/[0.06]" aria-hidden>{i + 1}</span>
+                  <span className="pointer-events-none absolute -right-3 -top-6 font-display text-[110px] font-extrabold leading-none text-brand/[0.06]" aria-hidden>{i + 1}</span>
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-sm font-bold text-forest">Step 0{i + 1}</span>
-                    <span className="grid size-10 place-items-center rounded-xl bg-forest-50 text-forest"><Icon className="size-5" aria-hidden /></span>
+                    <span className="font-display text-sm font-bold text-brand">Step 0{i + 1}</span>
+                    <span className="grid size-10 place-items-center rounded-xl bg-brand-50 text-brand"><Icon className="size-5" aria-hidden /></span>
                   </div>
                   <h3 className="mt-6 text-lg font-semibold">{title}</h3>
                   <p className="mt-2 text-sm text-ink-soft">{body}</p>
@@ -168,15 +168,15 @@ export default async function HomePage() {
             </Reveal>
           ))}
         </ol>
-        <Link href="/how-it-works" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-forest hover:underline">Read the full guide <ArrowRight className="size-4" /></Link>
+        <Link href="/how-it-works" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-brand hover:underline">Read the full guide <ArrowRight className="size-4" /></Link>
       </section>
 
       {/* Coimbatore */}
       <Reveal as="section" className="container-page" aria-labelledby="cbe-heading">
-        <div className="relative grid overflow-hidden rounded-3xl bg-forest text-white shadow-[0_40px_80px_-40px_rgba(27,70,54,0.8)] lg:grid-cols-2">
-          <div className="pointer-events-none absolute -left-24 -top-24 size-80 rounded-full bg-[radial-gradient(circle,rgba(159,227,191,0.35),transparent_70%)]" aria-hidden />
+        <div className="relative grid overflow-hidden rounded-3xl bg-brand text-white shadow-[0_40px_80px_-40px_rgba(110,40,18,0.55)] lg:grid-cols-2">
+          <div className="pointer-events-none absolute -left-24 -top-24 size-80 rounded-full bg-[radial-gradient(circle,rgba(232,163,61,0.45),transparent_70%)]" aria-hidden />
           <div className="relative p-8 sm:p-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-forest-100">Made for Coimbatore</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-100">Made for Coimbatore</p>
             <h2 id="cbe-heading" className="mt-3 text-3xl font-bold text-white sm:text-4xl">Your neighbourhood already owns it</h2>
             <p className="mt-4 max-w-md text-white/80">From wedding season in RS Puram to college fests in Peelamedu and treks out of Saravanampatti — rent from people a few kilometres away.</p>
             <ButtonLink href="/explore" variant="light" size="lg" className="mt-8">Browse near me</ButtonLink>
@@ -185,8 +185,8 @@ export default async function HomePage() {
             {AREAS.map((a) => {
               const n = areaCounts.find((c) => c.area === a.name)?._count ?? 0;
               return (
-                <Link key={a.name} href={`/explore?area=${encodeURIComponent(a.name)}`} className="bg-forest p-5 transition-colors hover:bg-forest-dark">
-                  <MapPin className="size-4 text-forest-100" aria-hidden />
+                <Link key={a.name} href={`/explore?area=${encodeURIComponent(a.name)}`} className="bg-brand p-5 transition-colors hover:bg-brand-dark">
+                  <MapPin className="size-4 text-brand-100" aria-hidden />
                   <p className="mt-3 font-semibold">{a.name}</p>
                   <p className="text-sm text-white/70">{n} {n === 1 ? "listing" : "listings"} · {a.pincode}</p>
                 </Link>
@@ -200,7 +200,7 @@ export default async function HomePage() {
       <Reveal as="section" className="container-page pt-16">
         <div className="card relative flex flex-col overflow-hidden items-start gap-8 p-8 sm:p-12 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xl">
-            <div className="flex gap-2 text-forest"><Camera className="size-5" /><Store className="size-5" /></div>
+            <div className="flex gap-2 text-brand"><Camera className="size-5" /><Store className="size-5" /></div>
             <h2 className="mt-4 text-3xl font-bold">Have something sitting unused?</h2>
             <p className="mt-3 text-ink-soft">List it for rent, for sale, or both. Individuals and small businesses keep {(10_000 - settings.commissionBps) / 100}% of every completed transaction — you set the price, the deposit and the dates.</p>
           </div>
@@ -208,7 +208,7 @@ export default async function HomePage() {
             <ButtonLink href="/seller/listings/new" size="lg">List an item</ButtonLink>
             <ButtonLink href="/sell" variant="secondary" size="lg">How selling works</ButtonLink>
           </div>
-          <div className="pointer-events-none absolute -bottom-24 -right-16 size-72 rounded-full bg-[radial-gradient(circle,rgba(127,207,159,0.3),transparent_70%)]" aria-hidden />
+          <div className="pointer-events-none absolute -bottom-24 -right-16 size-72 rounded-full bg-[radial-gradient(circle,rgba(232,163,61,0.28),transparent_70%)]" aria-hidden />
         </div>
       </Reveal>
     </>

@@ -20,7 +20,7 @@ export default async function ProfilePage() {
           <div className="mb-5 flex flex-wrap items-center gap-3 text-sm">
             <span className="font-medium">{user.email}</span>
             {user.emailVerifiedAt ? (
-              <span className="inline-flex items-center gap-1 text-forest"><BadgeCheck className="size-4" /> Verified {formatDay(user.emailVerifiedAt)}</span>
+              <span className="inline-flex items-center gap-1 text-brand"><BadgeCheck className="size-4" /> Verified {formatDay(user.emailVerifiedAt)}</span>
             ) : (
               <span className="inline-flex items-center gap-1 text-amber"><MailWarning className="size-4" /> Not verified — see <Link href="/account" className="underline">overview</Link></span>
             )}
@@ -34,7 +34,7 @@ export default async function ProfilePage() {
         <section className="card p-6 text-sm">
           <h2 className="text-lg font-bold">Selling on Borrowly</h2>
           <p className="mt-1 text-ink-soft">{user.sellerProfile ? `You sell as ${user.sellerProfile.displayName}.` : "The same account can list items for rent or sale."}</p>
-          <Link href={user.sellerProfile ? "/seller/profile" : "/seller/onboarding"} className="mt-3 inline-block font-medium text-forest hover:underline">{user.sellerProfile ? "Edit seller profile" : "Become a seller"}</Link>
+          <Link href={user.sellerProfile ? "/seller/profile" : "/seller/onboarding"} className="mt-3 inline-block font-medium text-brand hover:underline">{user.sellerProfile ? "Edit seller profile" : "Become a seller"}</Link>
         </section>
       </div>
     </>

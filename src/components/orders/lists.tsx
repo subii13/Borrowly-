@@ -74,7 +74,7 @@ export function TabLinks({ tabs, active }: { tabs: { key: string; label: string;
   return (
     <div className="mb-5 flex gap-1 overflow-x-auto border-b border-line scrollbar-none">
       {tabs.map((t) => (
-        <Link key={t.key} href={t.href} aria-current={t.key === active ? "page" : undefined} className={`-mb-px shrink-0 border-b-2 px-3 py-2.5 text-sm whitespace-nowrap ${t.key === active ? "border-forest font-semibold text-forest" : "border-transparent text-ink-soft hover:text-ink"}`}>
+        <Link key={t.key} href={t.href} aria-current={t.key === active ? "page" : undefined} className={`-mb-px shrink-0 border-b-2 px-3 py-2.5 text-sm whitespace-nowrap ${t.key === active ? "border-brand font-semibold text-brand" : "border-transparent text-ink-soft hover:text-ink"}`}>
           {t.label}{t.count !== undefined && <span className="ml-1.5 text-xs text-ink-faint">{t.count}</span>}
         </Link>
       ))}

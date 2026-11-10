@@ -2,31 +2,34 @@
 
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
 
-  --color-canvas: #f7f7f4;
-  --color-ink: #20241f;
-  --color-ink-soft: #565c55;
-  --color-ink-faint: #8a8f88;
-  --color-line: #e4e4de;
-  --color-line-strong: #d3d3cb;
-  --color-card: #ffffff;
-  --color-forest: #245c46;
-  --color-forest-dark: #1b4636;
-  --color-forest-50: #eaf1ed;
-  --color-forest-100: #d5e4db;
-  --color-sage: #7f9d89;
-  --color-sage-50: #f0f4f1;
-  --color-amber: #9a6a12;
+  /* Warm "terracotta & marigold" palette: clay roofs, kolam chalk and flower-market marigold. */
+  --color-canvas: #faf6ef;
+  --color-ink: #221c18;
+  --color-ink-soft: #5e554d;
+  --color-ink-faint: #8e847a;
+  --color-line: #ece3d7;
+  --color-line-strong: #dccfbf;
+  --color-card: #fffdf9;
+  --color-brand: #b5482a;
+  --color-brand-dark: #8e3519;
+  --color-brand-50: #fcefe8;
+  --color-brand-100: #f6dacc;
+  --color-marigold: #e8a33d;
+  --color-marigold-50: #fdf3df;
+  --color-sand: #c29c79;
+  --color-sand-50: #f6eee4;
+  --color-amber: #9a6412;
   --color-amber-50: #fbf3e2;
-  --color-rose: #a63a2b;
-  --color-rose-50: #fbecea;
-  --color-sky: #2f5f86;
+  --color-rose: #b42318;
+  --color-rose-50: #fdecea;
+  --color-sky: #2c5d8f;
   --color-sky-50: #e9f1f7;
 
   --radius-card: 14px;
-  --shadow-card: 0 1px 2px rgb(32 36 31 / 0.04), 0 1px 1px rgb(32 36 31 / 0.03);
-  --shadow-lift: 0 12px 32px -12px rgb(32 36 31 / 0.18);
+  --shadow-card: 0 1px 2px rgb(34 28 24 / 0.05), 0 1px 1px rgb(34 28 24 / 0.03);
+  --shadow-lift: 0 14px 34px -14px rgb(84 40 20 / 0.28);
 }
 
 @layer base {
@@ -39,12 +42,13 @@
   }
   h1, h2, h3, h4 {
     @apply font-display tracking-tight text-ink;
+    font-variation-settings: "SOFT" 60, "opsz" 72;
   }
   ::selection {
-    @apply bg-forest-100;
+    @apply bg-brand-100;
   }
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-forest;
+    @apply outline-2 outline-offset-2 outline-brand;
   }
   input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0.6;
@@ -59,10 +63,10 @@
     @apply rounded-[var(--radius-card)] border border-line bg-card shadow-[var(--shadow-card)];
   }
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.14em] text-forest;
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-brand;
   }
   .input {
-    @apply block w-full rounded-lg border border-line-strong bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-faint transition-colors focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15 disabled:bg-canvas disabled:text-ink-faint;
+    @apply block w-full rounded-lg border border-line-strong bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-ink-faint transition-colors focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15 disabled:bg-canvas disabled:text-ink-faint;
   }
   .label {
     @apply mb-1.5 block text-sm font-medium text-ink;

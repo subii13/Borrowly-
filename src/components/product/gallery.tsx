@@ -32,7 +32,7 @@ export function Gallery({ images, title }: { images: Img[]; title: string }) {
       {list.length > 1 && (
         <div className="mt-3 flex gap-2 overflow-x-auto scrollbar-none">
           {list.map((img, i) => (
-            <button key={img.id} type="button" onClick={() => setIndex(i)} aria-label={`Show image ${i + 1}`} aria-current={i === index} className={clsx("relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-lg border-2", i === index ? "border-forest" : "border-transparent opacity-80 hover:opacity-100")}>
+            <button key={img.id} type="button" onClick={() => setIndex(i)} aria-label={`Show image ${i + 1}`} aria-current={i === index} className={clsx("relative aspect-[4/3] w-24 shrink-0 overflow-hidden rounded-lg border-2", i === index ? "border-brand" : "border-transparent opacity-80 hover:opacity-100")}>
               <SafeImage src={img.url} alt="" fill sizes="96px" className="object-cover" />
             </button>
           ))}

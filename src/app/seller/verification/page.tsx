@@ -25,7 +25,7 @@ export default async function VerificationPage() {
           <ActionButton variant="secondary" action={requestOtpAction}>Send code</ActionButton>
           <ActionButton action={verifyOtpAction} prompt={{ label: "Enter the 6-digit code", required: true, placeholder: "123456" }}>Enter code</ActionButton>
         </div>
-      ) : <Link href="/seller/profile" className="text-sm font-medium text-forest underline">Add phone</Link>),
+      ) : <Link href="/seller/profile" className="text-sm font-medium text-brand underline">Add phone</Link>),
     },
     {
       done: ["PENDING", "VERIFIED"].includes(s.verificationStatus),
@@ -48,7 +48,7 @@ export default async function VerificationPage() {
         <ol className="mt-6 space-y-4">
           {steps.map((st) => (
             <li key={st.label} className="flex flex-col gap-2 border-t border-line pt-4 sm:flex-row sm:items-center sm:justify-between">
-              <span className="flex items-center gap-2 text-sm">{st.done ? <CheckCircle2 className="size-5 text-forest" /> : <Circle className="size-5 text-line-strong" />}{st.label}</span>
+              <span className="flex items-center gap-2 text-sm">{st.done ? <CheckCircle2 className="size-5 text-brand" /> : <Circle className="size-5 text-line-strong" />}{st.label}</span>
               {st.action}
             </li>
           ))}
@@ -56,7 +56,7 @@ export default async function VerificationPage() {
       </div>
       <div className="mt-6 rounded-xl border border-line bg-white p-5 text-sm text-ink-soft">
         <p className="font-semibold text-ink">What verification means</p>
-        <p className="mt-1">Borrowly confirms your email and phone number and a team member reviews your profile and listings. We deliberately do not collect Aadhaar or other identity documents in this version. In this demo, emails and SMS codes are delivered to the <Link href="/dev/outbox" className="text-forest underline">development outbox</Link> instead of a real provider.</p>
+        <p className="mt-1">Borrowly confirms your email and phone number and a team member reviews your profile and listings. We deliberately do not collect Aadhaar or other identity documents in this version. In this demo, emails and SMS codes are delivered to the <Link href="/dev/outbox" className="text-brand underline">development outbox</Link> instead of a real provider.</p>
       </div>
     </div>
   );

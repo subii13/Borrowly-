@@ -35,7 +35,7 @@ export default async function OutboxPage() {
                 <p className="text-xs text-ink-faint">{m.channel} · to {m.to} · {formatDateTime(m.createdAt)}</p>
                 <p className="mt-1 font-semibold">{m.subject}</p>
                 <p className="mt-1 break-all text-sm text-ink-soft">
-                  {m.body.split(/(https?:\/\/\S+)/g).map((part, i) => (/^https?:\/\//.test(part) ? <a key={i} href={part.replace(/^https?:\/\/[^/]+/, "")} className="text-forest underline">{part}</a> : part))}
+                  {m.body.split(/(https?:\/\/\S+)/g).map((part, i) => (/^https?:\/\//.test(part) ? <a key={i} href={part.replace(/^https?:\/\/[^/]+/, "")} className="text-brand underline">{part}</a> : part))}
                 </p>
               </li>
             ))}

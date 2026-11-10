@@ -7,7 +7,7 @@ export default async function AdminPurchasePage({ params }: { params: Promise<{ 
   const { actor } = await requireAdminPage();
   return (
     <>
-      <Link href="/admin/purchases" className="mb-4 inline-block text-sm text-ink-soft hover:text-forest">← All purchases</Link>
+      <Link href="/admin/purchases" className="mb-4 inline-block text-sm text-ink-soft hover:text-brand">← All purchases</Link>
       <PurchaseDetail orderId={id} actor={actor} />
     </>
   );

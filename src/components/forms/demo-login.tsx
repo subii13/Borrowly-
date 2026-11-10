@@ -25,8 +25,8 @@ export function DemoLoginButtons({ compact }: { compact?: boolean }) {
   return (
     <div className={compact ? "grid grid-cols-3 gap-2" : "grid grid-cols-1 gap-4 md:grid-cols-3"}>
       {ROLES.map(({ role, label, icon: Icon, body }) => (
-        <button key={role} type="button" disabled={pending} onClick={() => go(role)} data-testid={`demo-${role}`} className={compact ? "flex flex-col items-center gap-1 rounded-lg border border-line-strong bg-white px-2 py-3 text-sm font-medium hover:border-forest hover:text-forest disabled:opacity-60" : "card flex flex-col items-start p-6 text-left transition-shadow hover:shadow-[var(--shadow-lift)] disabled:opacity-60"}>
-          {pending ? <Loader2 className="size-5 animate-spin text-forest" /> : <Icon className="size-5 text-forest" />}
+        <button key={role} type="button" disabled={pending} onClick={() => go(role)} data-testid={`demo-${role}`} className={compact ? "flex flex-col items-center gap-1 rounded-lg border border-line-strong bg-white px-2 py-3 text-sm font-medium hover:border-brand hover:text-brand disabled:opacity-60" : "card flex flex-col items-start p-6 text-left transition-shadow hover:shadow-[var(--shadow-lift)] disabled:opacity-60"}>
+          {pending ? <Loader2 className="size-5 animate-spin text-brand" /> : <Icon className="size-5 text-brand" />}
           <span className={compact ? "" : "mt-4 font-display text-lg font-bold"}>{compact ? label : `Continue as ${label}`}</span>
           {!compact && <span className="mt-1 text-sm text-ink-soft">{body}</span>}
         </button>

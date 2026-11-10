@@ -32,7 +32,7 @@ export default async function TransactionsPage() {
                 return (
                   <tr key={p.id}>
                     <td className="whitespace-nowrap text-ink-soft">{formatDateTime(p.createdAt)}</td>
-                    <td><Link href={href} className="font-medium hover:text-forest">{t?.listing.title}</Link><p className="text-xs text-ink-faint">{t?.code} · {p.booking ? "Rental" : "Purchase"}</p></td>
+                    <td><Link href={href} className="font-medium hover:text-brand">{t?.listing.title}</Link><p className="text-xs text-ink-faint">{t?.code} · {p.booking ? "Rental" : "Purchase"}</p></td>
                     <td className="text-right tabular-nums">{formatINR(p.amountPaise)}</td>
                     <td className="text-right tabular-nums text-ink-soft">{refunded ? formatINR(refunded) : "—"}</td>
                     <td><StatusBadge status={p.status} label={PAYMENT_STATUS_LABEL[p.status]} /></td>

@@ -18,7 +18,7 @@ export function ConfirmStepForm({ action, label, help }: { action: (input: unkno
   const [photos, setPhotos] = useState<Uploaded[]>([]);
   const [pending, start] = useTransition();
   return (
-    <div className="rounded-xl border border-forest/20 bg-forest-50/50 p-4">
+    <div className="rounded-xl border border-brand/20 bg-brand-50/50 p-4">
       <p className="font-semibold">{label}</p>
       <p className="mt-0.5 text-sm text-ink-soft">{help}</p>
       <textarea className="input mt-3 min-h-20 bg-white" placeholder="Condition notes (e.g. accessories included, any marks)" value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} aria-label="Condition notes" />

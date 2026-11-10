@@ -40,7 +40,7 @@ export function MicButton<T>({
         data-testid={`mic-${purpose}`}
         className={clsx(
           "inline-flex h-11 items-center gap-2 rounded-full border px-4 text-sm font-medium transition-colors",
-          recording ? "border-rose bg-rose text-white" : "border-forest/30 bg-forest-50 text-forest hover:bg-forest-100",
+          recording ? "border-rose bg-rose text-white" : "border-brand/30 bg-brand-50 text-brand hover:bg-brand-100",
           className,
         )}
       >
@@ -62,7 +62,7 @@ export function MicButton<T>({
       data-testid={`mic-${purpose}`}
       className={clsx(
         "relative grid size-10 shrink-0 place-items-center rounded-lg transition-colors",
-        recording ? "bg-rose text-white" : "text-forest hover:bg-forest-50",
+        recording ? "bg-rose text-white" : "text-brand hover:bg-brand-50",
         className,
       )}
     >

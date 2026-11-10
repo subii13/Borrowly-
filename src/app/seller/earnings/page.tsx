@@ -43,7 +43,7 @@ export default async function EarningsPage() {
             {history.map((h) => (
               <tr key={h.id}>
                 <td className="whitespace-nowrap text-ink-soft">{formatDay(h.date)}</td>
-                <td><Link href={h.href} className="font-medium hover:text-forest">{h.title}</Link><p className="text-xs text-ink-faint">{h.kind} · {h.code}</p></td>
+                <td><Link href={h.href} className="font-medium hover:text-brand">{h.title}</Link><p className="text-xs text-ink-faint">{h.kind} · {h.code}</p></td>
                 <td className="text-right tabular-nums">{formatINR(h.gross)}</td>
                 <td className="text-right tabular-nums text-ink-soft">− {formatINR(h.commission)}</td>
                 <td className="text-right font-semibold tabular-nums">{formatINR(h.net)}</td>
