@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { clsx } from "clsx";
 import { Bell, ChevronDown, LayoutDashboard, LogOut, MapPin, Menu, ShieldCheck, Store, User, X } from "lucide-react";
 import { AREAS } from "@/lib/constants";
@@ -136,8 +137,9 @@ export function MobileNav({ categories, user }: { categories: Cat[]; user: MenuU
       <button type="button" className="-ml-2 grid size-10 place-items-center rounded-lg text-ink lg:hidden" onClick={() => setOpen(true)} aria-label="Open menu">
         <Menu className="size-5" aria-hidden />
       </button>
-      {open && (
-        <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true">
+      {/* Portalled to <body>: the header's backdrop-blur would otherwise trap this fixed drawer inside the header box. */}
+      {open && createPortal(
+        <div className="fixed inset-0 z-[100] lg:hidden" role="dialog" aria-modal="true">
           <div className="absolute inset-0 bg-ink/40" onClick={() => setOpen(false)} />
           <div className="absolute inset-y-0 left-0 flex w-[86%] max-w-sm flex-col overflow-y-auto bg-canvas p-4">
             <div className="mb-4 flex items-center justify-between">
@@ -167,7 +169,8 @@ export function MobileNav({ categories, user }: { categories: Cat[]; user: MenuU
               ))}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
